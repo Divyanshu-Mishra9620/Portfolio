@@ -16,6 +16,12 @@ import {
   money,
   bankist,
   chatty,
+  nextjs,
+  python,
+  postgresql,
+  django,
+  ecommerce,
+  healthAssistant
 } from "../assets";
 
 export const navLinks = [
@@ -82,6 +88,22 @@ const technologies = [
     icon: git,
   },
   {
+    name: "PostgreSql",
+    icon: postgresql,
+  },
+  {
+    name: "Python",
+    icon: python,
+  },
+  {
+    name: "Django",
+    icon: django,
+  },
+  {
+    name: "Next Js",
+    icon: nextjs,
+  },
+  {
     name: "figma",
     icon: figma,
   },
@@ -90,7 +112,7 @@ const technologies = [
 const experiences = [
   {
     title: "Front-End Developer",
-    company_name: "GSSOC",
+    company_name: "GSSOC'24",
     icon: gssoc,
     iconBg: "#E6DEDD",
     date: "May 2024 - July 2024",
@@ -114,30 +136,55 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Bookings Manager",
+    name: "E-Commerce",
     description:
-      "This application streamlines hotel operations with features like cabin and booking management, user authentication, and sales statistics. It includes a dashboard for key insights, customizable settings, and tools for managing guests, check-ins, and payments. Users can easily update data, upload images, and toggle a dark mode for accessibility. Designed exclusively for hotel employees, it ensures secure and efficient management.",
+      "Developed a fully functional eCommerce platform using the MERN stack and NEXT JS. Integrated Auth.js for secure user authentication and session management. Implemented Razorpay payment gateway for seamless and secure online transactions",
     tags: [
       {
-        name: "react",
+        name: "MERN",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "MongoDB",
         color: "green-text-gradient",
       },
       {
-        name: "tailwind",
+        name: "NextJs",
         color: "pink-text-gradient",
       },
     ],
-    image: wild,
-    source_code_link: "https://wild-oasis-lyart.vercel.app/",
+    image: ecommerce,
+    source_code_link: "https://e-commerce-frontend-murex-eta.vercel.app/",
+  },
+  {
+    name: "AI-Health-Assistant",
+    description:
+      "Tech Stack: Next.js, Django, Python, PostgreSQL, Tailwind CSS, OpenAI API, JWT Auth, TypeScript. Built a full-stack AI-powered health assistant web application that allows users to interact with a chatbot for instant health diagnosis based on their symptoms.",
+    tags: [
+      {
+        name: "TypeScript",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Python",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Django",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "PostgreSQL",
+        color: "blue-text-gradient",
+      },
+    ],
+    image: healthAssistant,
+    source_code_link: "https://health-assistant-omega.vercel.app/",
   },
   {
     name: "Chatty",
     description:
-      "A real-time messaging application built using the MERN stack (MongoDB, Express.js, React, Node.js), Socket.IO, and styled with Tailwind CSS. This application allows users to engage in seamless and instant communication with the following key features: Real-Time Messaging: Instant communication using WebSocket technology powered by Socket.IO. User-Friendly Interface: Clean and modern design crafted with Tailwind CSS for an intuitive user experience.Media Support: Users can send text messages and upload images, with images securely hosted using Cloudinary.Persistent Chat History: All conversations are stored in a MongoDB database and retrieved efficiently, enabling users to view their chat history.",
+      "A real-time messaging application built using the MERN stack (MongoDB, Express.js, React, Node.js), Socket.IO, and styled with Tailwind CSS. This application allows users to engage in seamless and instant.",
     tags: [
       {
         name: "MERN",
@@ -154,49 +201,7 @@ const projects = [
     ],
     image: chatty,
     source_code_link: "https://fullstack-chat-app-1-57jj.onrender.com",
-  },
-  {
-    name: "MoneyMate",
-    description:
-      "Developed a frontend application. User Authentication: Secure login functionality to ensure user privacy and data security. Dummy data --> user1: dm pin:3333 user2: gs pin:4444 You can login with these dummy info and explore the application. Money Transfer: Easily transfer money to other users within the application. Loan Requests: Request loans from the bank and manage repayments. Transaction History: Display a detailed history of all deposits and withdrawals.",
-    tags: [
-      {
-        name: "javascript",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "html",
-        color: "green-text-gradient",
-      },
-      {
-        name: "css",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: money,
-    source_code_link: "https://money-mate-465.netlify.app/",
-  },
-  {
-    name: "Bankist",
-    description:
-      "Interactive Elements: Includes interactive features like buttons, forms, and animations to enhance user engagement.Clean Layout: A well-structured layout with intuitive navigation, providing easy access to different sections of the website. Smooth Navigation: Implemented smooth and efficient navigation.",
-    tags: [
-      {
-        name: "javascript",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "html",
-        color: "green-text-gradient",
-      },
-      {
-        name: "css",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: bankist,
-    source_code_link: "https://exquisite-panda-e868cf.netlify.app/",
-  },
+  }
 ];
 
 export { services, technologies, experiences, testimonials, projects };
