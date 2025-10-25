@@ -4,6 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body,
+#root {
+  background-color: #050816;
+  min-height: 100vh;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +18,30 @@
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
   color-scheme: dark;
+}
+
+/* Improved scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050816;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #804dee 0%, #915eff 100%);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #915eff 0%, #804dee 100%);
+}
+
+/* Focus visible for accessibility */
+*:focus-visible {
+  outline: 2px solid #915eff;
+  outline-offset: 2px;
 }
 
 .hash-span {
@@ -114,7 +145,177 @@
   -webkit-text-fill-color: transparent;
 }
 
+/* Custom animations */
+@keyframes gradient {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  background: linear-gradient(90deg, #915eff, #ec008c, #915eff);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient 3s ease infinite;
+}
+
+/* Smooth transitions */
+button,
+a,
+input,
+textarea {
+  transition: all 0.3s ease;
+}
+
+/* Improved button styles */
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Loading animation improvement */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Selection color */
+::selection {
+  background-color: #915eff;
+  color: white;
+}
+
+::-moz-selection {
+  background-color: #915eff;
+  color: white;
+}
+
 /* canvas- styles */
+canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  outline: none;
+  background: transparent !important;
+}
+
+/* Prevent white background from drei Html component */
+canvas + div {
+  background: transparent !important;
+}
+
+/* Wooden texture styles for GitHub section */
+.wooden-texture {
+  background: linear-gradient(
+    90deg,
+    #3e2723 0%,
+    #5d4037 25%,
+    #4e342e 50%,
+    #5d4037 75%,
+    #3e2723 100%
+  );
+  background-size: 200% 100%;
+  animation: woodShimmer 8s ease-in-out infinite;
+  position: relative;
+}
+
+.wooden-texture::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.1) 2px,
+      rgba(0, 0, 0, 0.1) 4px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 1px,
+      rgba(255, 255, 255, 0.05) 1px,
+      rgba(255, 255, 255, 0.05) 2px
+    );
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+@keyframes woodShimmer {
+  0%,
+  100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+}
+
+.wood-card {
+  background: linear-gradient(
+    135deg,
+    #5d4037 0%,
+    #6d4c41 25%,
+    #8d6e63 50%,
+    #6d4c41 75%,
+    #5d4037 100%
+  );
+  background-size: 200% 200%;
+  position: relative;
+  border: 2px solid #4e342e;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3), 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.wood-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.05) 2px,
+      rgba(0, 0, 0, 0.05) 4px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.03) 2px,
+      rgba(255, 255, 255, 0.03) 4px
+    );
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.wood-card:hover {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.4), 0 12px 25px rgba(0, 0, 0, 0.6);
+}
+
 .canvas-loader {
   font-size: 10px;
   width: 1em;

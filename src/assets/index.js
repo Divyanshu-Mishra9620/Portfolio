@@ -5,6 +5,7 @@ import mobile from "./mobile.png";
 import web from "./web.png";
 import github from "./github.png";
 import arrow from "./arrow.png";
+import externalLink from "./external-link.svg";
 import menu from "./menu.svg";
 import close from "./close.svg";
 
@@ -12,7 +13,7 @@ import css from "./tech/css.png";
 import docker from "./tech/docker.png";
 import figma from "./tech/figma.png";
 import git from "./tech/git.png";
-import html from "./tech/html5.png";
+import html from "./tech/html.png";
 import javascript from "./tech/javascript.png";
 import mongodb from "./tech/mongodb.png";
 import nodejs from "./tech/nodejs.png";
@@ -21,10 +22,10 @@ import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
-import django from "./tech/django.png"
-import nextjs from "./tech/nextjs.jpeg"
-import postgresql from "./tech/postgresql.png"
-import python from "./tech/python.png"
+import django from "./tech/django.png";
+import nextjs from "./tech/nextjs.jpeg";
+import postgresql from "./tech/postgresql.png";
+import python from "./tech/python.png";
 
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
@@ -40,6 +41,7 @@ import chatty from "./chatty.png";
 
 export {
   arrow,
+  externalLink,
   gssoc,
   logo,
   backend,
@@ -74,5 +76,5 @@ export {
   postgresql,
   nextjs,
   ecommerce,
-  healthAssistant
+  healthAssistant,
 };

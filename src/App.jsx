@@ -10,6 +10,8 @@ import {
   Tech,
   Works,
   StarsCanvas,
+  BackToTop,
+  GithubStats,
 } from "./components";
 
 export default function App() {
@@ -20,6 +22,7 @@ export default function App() {
           <Navbar />
           <Hero />
         </div>
+        <GithubStats />
         <About />
         <Experience />
         <Tech />
@@ -29,6 +32,7 @@ export default function App() {
           <Contact />
           <StarsCanvas />
         </div>
+        <BackToTop />
       </div>
     </BrowserRouter>
   );

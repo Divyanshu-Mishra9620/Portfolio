@@ -18,15 +18,19 @@ const ExperienceCard = ({ experience }) => {
       contentStyle={{
         background: "#1d1836",
         color: "#fff",
+        boxShadow: "0 10px 30px rgba(145, 94, 255, 0.2)",
       }}
-      contentArrowStyle={{ borderRight: "7px solid  #232631" }}
+      contentArrowStyle={{ borderRight: "7px solid #232631" }}
       date={experience.date}
-      iconStyle={{ background: experience.iconBg }}
+      iconStyle={{
+        background: experience.iconBg,
+        boxShadow: "0 0 20px rgba(145, 94, 255, 0.5)",
+      }}
       icon={
         <div className="flex justify-center items-center w-full h-full">
           <img
             src={experience.icon}
-            alt={experience.company_name}
+            alt={`${experience.company_name} logo`}
             className="w-[60%] h-[60%] object-contain"
           />
         </div>
@@ -46,7 +50,7 @@ const ExperienceCard = ({ experience }) => {
         {experience.points.map((point, index) => (
           <li
             key={`experience-point-${index}`}
-            className="text-white-100 text-[14px] pl-1 tracking-wider"
+            className="text-white-100 text-[14px] pl-1 tracking-wider leading-relaxed"
           >
             {point}
           </li>

@@ -1,8 +1,8 @@
 import {
   web,
+  html,
   javascript,
   typescript,
-  html,
   css,
   reactjs,
   redux,
@@ -12,16 +12,13 @@ import {
   git,
   figma,
   gssoc,
-  wild,
-  money,
-  bankist,
   chatty,
   nextjs,
   python,
   postgresql,
   django,
   ecommerce,
-  healthAssistant
+  healthAssistant,
 } from "../assets";
 
 export const navLinks = [
@@ -32,6 +29,10 @@ export const navLinks = [
   {
     id: "work",
     title: "Work",
+  },
+  {
+    id: "github",
+    title: "GitHub",
   },
   {
     id: "contact",
@@ -47,10 +48,6 @@ const services = [
 ];
 
 const technologies = [
-  {
-    name: "HTML 5",
-    icon: html,
-  },
   {
     name: "CSS 3",
     icon: css,
@@ -154,7 +151,9 @@ const projects = [
       },
     ],
     image: ecommerce,
-    source_code_link: "https://e-commerce-frontend-murex-eta.vercel.app/",
+    source_code_link:
+      "https://github.com/Divyanshu-Mishra9620/E-Commerce-frontend",
+    deployed_link: "https://e-commerce-frontend-murex-eta.vercel.app/",
   },
   {
     name: "AI-Health-Assistant",
@@ -179,7 +178,9 @@ const projects = [
       },
     ],
     image: healthAssistant,
-    source_code_link: "https://health-assistant-omega.vercel.app/",
+    source_code_link:
+      "https://github.com/Divyanshu-Mishra9620/Health-Assistant",
+    deployed_link: "https://health-assistant-omega.vercel.app/",
   },
   {
     name: "Chatty",
@@ -200,8 +201,10 @@ const projects = [
       },
     ],
     image: chatty,
-    source_code_link: "https://fullstack-chat-app-1-57jj.onrender.com",
-  }
+    source_code_link:
+      "https://github.com/Divyanshu-Mishra9620/Fullstack-chat-app",
+    deployed_link: "https://fullstack-chat-app-1-57jj.onrender.com",
+  },
 ];
 
 export { services, technologies, experiences, testimonials, projects };

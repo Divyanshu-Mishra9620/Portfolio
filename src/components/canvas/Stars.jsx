@@ -5,6 +5,7 @@ import * as random from "maath/random/dist/maath-random.esm";
 
 const Stars = (props) => {
   const ref = useRef();
+  const groupRef = useRef();
   const [sphere] = useState(() =>
     random.inSphere(new Float32Array(5000), { radius: 1.2 })
   );
@@ -15,7 +16,7 @@ const Stars = (props) => {
   });
 
   return (
-    <group rotation={[0, 0, Math.PI / 4]}>
+    <group ref={groupRef} rotation={[0, 0, Math.PI / 4]}>
       <Points ref={ref} positions={sphere} stride={3} frustumCulled {...props}>
         <PointMaterial
           transparent
