@@ -210,8 +210,8 @@ const GithubStats = () => {
   };
 
   return (
-    <div className="w-screen relative left-[calc(-50vw+50%)] px-0 md:px-0 bg-transparent">
-      <div className="w-full bg-gradient-to-b from-slate-900 via-slate-950 to-black relative overflow-hidden">
+    <div className="w-screen relative left-[calc(-50vw+50%)] px-0 md:px-0 bg-transparent min-h-[600px] md:min-h-screen">
+      <div className="w-full bg-gradient-to-b from-slate-900 via-slate-950 to-black relative overflow-hidden h-full">
         {/* Tech grid background */}
         <div className="absolute inset-0 opacity-10">
           <div
@@ -233,12 +233,6 @@ const GithubStats = () => {
         <div
           className={`relative z-10 ${styles.padding} min-h-screen md:min-h-auto py-12 md:py-16`}
         >
-          {/* Debug Info */}
-          <div className="text-xs text-gray-500 mb-4 font-mono">
-            DEBUG: loading={loading}, error={error ? "yes" : "no"}, stats=
-            {JSON.stringify(stats).substring(0, 50)}...
-          </div>
-
           {/* Header with tech styling */}
           <motion.div variants={textVariant()} className="mb-2">
             <div className="flex items-center gap-3 mb-4">
