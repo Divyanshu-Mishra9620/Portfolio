@@ -39,7 +39,6 @@ const ContactTerminal = ({ onSubmit, isMobile }) => {
   };
 
   const processCommand = (cmd) => {
-    // Add the command to output
     addOutput(`$ ${cmd}`);
 
     if (cmd === "help") {
@@ -108,7 +107,6 @@ const ContactTerminal = ({ onSubmit, isMobile }) => {
           "",
         ]);
       } else {
-        // Validate email format
         const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
         if (!emailRegex.test(formData.email)) {
           addOutput([
@@ -119,7 +117,6 @@ const ContactTerminal = ({ onSubmit, isMobile }) => {
           return;
         }
 
-        // Validate message length
         if (formData.message.trim().length < 10) {
           addOutput(["✗ Message must be at least 10 characters.", ""]);
           return;
@@ -132,7 +129,6 @@ const ContactTerminal = ({ onSubmit, isMobile }) => {
           "> Connecting to server...",
         ]);
 
-        // Call the parent component's onSubmit function
         onSubmit(formData)
           .then(() => {
             addOutput([
@@ -161,9 +157,7 @@ const ContactTerminal = ({ onSubmit, isMobile }) => {
         "",
       ]);
     } else if (cmd === "") {
-      // Empty command, do nothing
     } else if (currentStep) {
-      // User is entering form data
       if (currentStep === "name") {
         if (cmd.length < 2) {
           addOutput(["> Name must be at least 2 characters.", ""]);
@@ -217,7 +211,6 @@ const ContactTerminal = ({ onSubmit, isMobile }) => {
         isMobile ? "h-[400px]" : "h-[500px]"
       }`}
     >
-      {/* Terminal Header */}
       <div className="bg-slate-950 px-3 md:px-4 py-2 md:py-3 flex items-center gap-2 border-b border-[#915EFF] border-opacity-30">
         <div className="flex gap-2">
           <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
@@ -229,7 +222,6 @@ const ContactTerminal = ({ onSubmit, isMobile }) => {
         </span>
       </div>
 
-      {/* Terminal Content */}
       <div
         ref={contentRef}
         className="flex-1 overflow-y-auto p-3 md:p-4 font-mono text-xs md:text-sm space-y-1"
@@ -238,19 +230,19 @@ const ContactTerminal = ({ onSubmit, isMobile }) => {
           let lineColor = "text-[#00d4ff]";
 
           if (line.startsWith("$")) {
-            lineColor = "text-[#a8e6cf]"; // Green for commands
+            lineColor = "text-[#a8e6cf]";
           } else if (line.includes("✓")) {
-            lineColor = "text-[#00ff00]"; // Green for success
+            lineColor = "text-[#00ff00]";
           } else if (line.includes("✗")) {
-            lineColor = "text-[#ff6b6b]"; // Red for error
+            lineColor = "text-[#ff6b6b]";
           } else if (line.startsWith(">")) {
-            lineColor = "text-[#ffd3b6]"; // Orange for instructions
+            lineColor = "text-[#ffd3b6]";
           } else if (
             line.includes("Name:") ||
             line.includes("Email:") ||
             line.includes("Message:")
           ) {
-            lineColor = "text-[#915EFF]"; // Purple for form data
+            lineColor = "text-[#915EFF]";
           }
 
           return (
@@ -264,7 +256,6 @@ const ContactTerminal = ({ onSubmit, isMobile }) => {
         })}
       </div>
 
-      {/* Terminal Input */}
       <div className="bg-slate-950 px-3 md:px-4 py-3 border-t border-[#915EFF] border-opacity-30 flex items-center gap-2">
         <span className="text-[#00d4ff] font-mono text-xs md:text-sm flex-shrink-0">
           $

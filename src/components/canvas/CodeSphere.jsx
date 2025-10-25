@@ -22,9 +22,7 @@ const CodeParticles = () => {
     const colors = new Float32Array(count * 3);
 
     for (let i = 0; i < count; i++) {
-      // Random position in sphere
       const theta = Math.random() * Math.PI * 2;
-      // Clamp phi input to avoid NaN in acos
       const phiInput = Math.max(-1, Math.min(1, Math.random() * 2 - 1));
       const phi = Math.acos(phiInput);
       const radius = 3 + Math.random() * 2;
@@ -33,27 +31,22 @@ const CodeParticles = () => {
       const y = radius * Math.sin(phi) * Math.sin(theta);
       const z = radius * Math.cos(phi);
 
-      // Validate positions to avoid NaN
       positions[i * 3] = Number.isFinite(x) ? x : 0;
       positions[i * 3 + 1] = Number.isFinite(y) ? y : 0;
       positions[i * 3 + 2] = Number.isFinite(z) ? z : 0;
 
-      // Purple-cyan color palette
       const colorChoice = Math.random();
       if (colorChoice < 0.5) {
-        // Purple
         colors[i * 3] = 0.5 + Math.random() * 0.5;
         colors[i * 3 + 1] = 0.2 + Math.random() * 0.3;
         colors[i * 3 + 2] = 1.0;
       } else {
-        // Cyan
         colors[i * 3] = 0.0;
         colors[i * 3 + 1] = 0.8 + Math.random() * 0.2;
         colors[i * 3 + 2] = 1.0;
       }
     }
 
-    // Set buffer attributes directly on the geometry
     const geometry = particlesRef.current.geometry;
     if (geometry) {
       const positionAttribute = new THREE.BufferAttribute(positions, 3);
@@ -205,7 +198,6 @@ const CodeSphere = ({ isMobile }) => {
 
   return (
     <group>
-      {/* Main sphere with distortion */}
       <Float speed={1.5} rotationIntensity={0.5} floatIntensity={0.5}>
         <Sphere ref={meshRef} args={[1.8, 64, 64]} scale={isMobile ? 0.7 : 1}>
           <MeshDistortMaterial
@@ -222,16 +214,12 @@ const CodeSphere = ({ isMobile }) => {
         </Sphere>
       </Float>
 
-      {/* Orbiting rings */}
       <CodeRings />
 
-      {/* Code symbols */}
       <CodeSymbols isMobile={isMobile} />
 
-      {/* Code particles */}
       <CodeParticles />
 
-      {/* Lights */}
       <ambientLight intensity={0.4} />
       <pointLight position={[10, 10, 10]} intensity={1.5} color="#915EFF" />
       <pointLight position={[-10, -10, -10]} intensity={1} color="#00d4ff" />

@@ -83,7 +83,6 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Menu Backdrop */}
         {toggle && (
           <div
             className="sm:hidden fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-30 transition-opacity duration-300"
@@ -92,7 +91,6 @@ const Navbar = () => {
           />
         )}
 
-        {/* Mobile Menu */}
         <div
           className={`${
             toggle ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"

@@ -27,23 +27,20 @@ const GithubStats = () => {
         setLoading(true);
         setError(null);
 
-        // GitHub API headers with token for higher rate limits
         const headers = {
           Accept: "application/vnd.github.v3+json",
         };
 
-        // Add Authorization header only if token exists and is not empty
         const token = import.meta.env.VITE_GITHUB_TOKEN?.trim();
 
         if (token && token.length > 0) {
           headers.Authorization = `token ${token}`;
         }
 
-        // Make both API calls in parallel with timeout
         const controller = new AbortController();
         const timeoutId = setTimeout(() => {
           controller.abort();
-        }, 10000); // 10 second timeout
+        }, 10000);
 
         try {
           const userResponse = await fetch(
@@ -88,7 +85,6 @@ const GithubStats = () => {
           const userData = await userResponse.json();
           const reposData = await reposResponse.json();
 
-          // Validate data before processing
           if (!userData) {
             throw new Error("Invalid user data from GitHub API");
           }
@@ -96,7 +92,6 @@ const GithubStats = () => {
             throw new Error("Invalid repositories data from GitHub API");
           }
 
-          // Calculate total stars and forks
           const totalStars = reposData.reduce(
             (acc, repo) => acc + (repo?.stargazers_count || 0),
             0
@@ -106,7 +101,6 @@ const GithubStats = () => {
             0
           );
 
-          // Get recent repositories
           const recent = reposData.slice(0, 6).map((repo) => ({
             name: repo?.name || "Unnamed Repository",
             description: repo?.description || "No description available",
@@ -143,7 +137,6 @@ const GithubStats = () => {
         );
         setLoading(false);
 
-        // Set default stats to show at least something
         setStats({
           totalRepos: 0,
           totalStars: 0,
@@ -212,7 +205,6 @@ const GithubStats = () => {
   return (
     <div className="w-screen relative left-[calc(-50vw+50%)] px-0 md:px-0 bg-transparent min-h-[600px] md:min-h-screen">
       <div className="w-full bg-gradient-to-b from-slate-900 via-slate-950 to-black relative overflow-hidden h-full">
-        {/* Tech grid background */}
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0"
@@ -226,14 +218,12 @@ const GithubStats = () => {
           />
         </div>
 
-        {/* Glow effects */}
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600 rounded-full blur-3xl opacity-10 pointer-events-none" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-600 rounded-full blur-3xl opacity-10 pointer-events-none" />
 
         <div
           className={`relative z-10 ${styles.padding} min-h-screen md:min-h-auto py-12 md:py-16`}
         >
-          {/* Header with tech styling */}
           <motion.div variants={textVariant()} className="mb-2">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-1 h-8 bg-gradient-to-b from-[#915EFF] to-[#00d4ff]" />
@@ -291,7 +281,6 @@ const GithubStats = () => {
             </div>
           ) : (
             <>
-              {/* Stats Grid */}
               <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {statCards.map((stat, index) => (
                   <motion.div
@@ -299,7 +288,6 @@ const GithubStats = () => {
                     variants={fadeIn("up", "spring", index * 0.1, 0.75)}
                     className="relative group"
                   >
-                    {/* Border glow effect */}
                     <div className="absolute -inset-0.5 bg-gradient-to-r from-[#915EFF] to-[#00d4ff] rounded-lg blur opacity-0 group-hover:opacity-75 transition duration-500 -z-10" />
 
                     <div className="relative bg-slate-900 bg-opacity-80 border border-[#915EFF] border-opacity-30 group-hover:border-opacity-100 p-6 rounded-lg transition-all duration-300 backdrop-blur-sm">
@@ -324,7 +312,6 @@ const GithubStats = () => {
                 ))}
               </div>
 
-              {/* GitHub Profile Link */}
               <motion.div
                 variants={fadeIn("up", "spring", 0.6, 0.75)}
                 className="mt-12 flex justify-center"
@@ -345,7 +332,6 @@ const GithubStats = () => {
                 </a>
               </motion.div>
 
-              {/* Recent Repositories */}
               <motion.div
                 variants={fadeIn("up", "spring", 0.7, 0.75)}
                 className="mt-16"
@@ -416,7 +402,6 @@ const GithubStats = () => {
                 </div>
               </motion.div>
 
-              {/* GitHub Streak & Contributions */}
               <motion.div
                 variants={fadeIn("up", "spring", 0.8, 0.75)}
                 className="mt-16 flex flex-col gap-6"
@@ -429,7 +414,6 @@ const GithubStats = () => {
                   </h3>
                 </div>
 
-                {/* GitHub Streak Stats */}
                 <div className="relative group">
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-[#915EFF] to-[#00d4ff] rounded blur opacity-0 group-hover:opacity-50 transition duration-500 -z-10" />
                   <div className="relative bg-slate-900 bg-opacity-80 border border-[#00d4ff] border-opacity-30 group-hover:border-opacity-100 p-6 rounded overflow-hidden backdrop-blur-sm transition-all duration-300">
@@ -443,7 +427,6 @@ const GithubStats = () => {
                   </div>
                 </div>
 
-                {/* GitHub Activity Graph */}
                 <div className="relative group">
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-[#915EFF] to-[#00d4ff] rounded blur opacity-0 group-hover:opacity-50 transition duration-500 -z-10" />
                   <div className="relative bg-slate-900 bg-opacity-80 border border-[#00d4ff] border-opacity-30 group-hover:border-opacity-100 p-6 rounded overflow-hidden backdrop-blur-sm transition-all duration-300">
@@ -457,7 +440,6 @@ const GithubStats = () => {
                   </div>
                 </div>
 
-                {/* Most Used Languages */}
                 <div className="relative group">
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-[#915EFF] to-[#00d4ff] rounded blur opacity-0 group-hover:opacity-50 transition duration-500 -z-10" />
                   <div className="relative bg-slate-900 bg-opacity-80 border border-[#00d4ff] border-opacity-30 group-hover:border-opacity-100 p-6 rounded overflow-hidden backdrop-blur-sm transition-all duration-300">

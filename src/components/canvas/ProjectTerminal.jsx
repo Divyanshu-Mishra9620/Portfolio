@@ -33,10 +33,8 @@ const ProjectTerminal = ({
   };
 
   const processCommand = (cmd) => {
-    // Add the command to output
     setOutput((prev) => [...prev, `$ ${cmd}`]);
 
-    // Process the command
     if (cmd === "github") {
       setOutput((prev) => [
         ...prev,
@@ -88,7 +86,6 @@ const ProjectTerminal = ({
         "",
       ]);
     } else if (cmd === "") {
-      // Empty command, do nothing
     } else {
       setOutput((prev) => [
         ...prev,
@@ -104,7 +101,6 @@ const ProjectTerminal = ({
         isMobile ? "h-[300px]" : "h-[350px]"
       }`}
     >
-      {/* Terminal Header */}
       <div className="bg-slate-950 px-3 md:px-4 py-2 md:py-3 flex items-center gap-2 border-b border-[#915EFF] border-opacity-30">
         <div className="flex gap-2">
           <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
@@ -116,7 +112,6 @@ const ProjectTerminal = ({
         </span>
       </div>
 
-      {/* Terminal Content */}
       <div
         ref={contentRef}
         className="flex-1 overflow-y-auto p-3 md:p-4 font-mono text-xs md:text-sm space-y-1"
@@ -125,13 +120,13 @@ const ProjectTerminal = ({
           let lineColor = "text-[#00d4ff]";
 
           if (line.startsWith("$")) {
-            lineColor = "text-[#a8e6cf]"; // Green for commands
+            lineColor = "text-[#a8e6cf]";
           } else if (line.includes("✓") || line.includes("Navigating")) {
-            lineColor = "text-[#00ff00]"; // Green for success
+            lineColor = "text-[#00ff00]";
           } else if (line.includes("✗")) {
-            lineColor = "text-[#ff6b6b]"; // Red for error
+            lineColor = "text-[#ff6b6b]";
           } else if (line.startsWith(">")) {
-            lineColor = "text-[#ffd3b6]"; // Orange for instructions
+            lineColor = "text-[#ffd3b6]";
           }
 
           return (
@@ -145,7 +140,6 @@ const ProjectTerminal = ({
         })}
       </div>
 
-      {/* Terminal Input */}
       <div className="bg-slate-950 px-3 md:px-4 py-3 border-t border-[#915EFF] border-opacity-30 flex items-center gap-2">
         <span className="text-[#00d4ff] font-mono text-xs md:text-sm flex-shrink-0">
           $

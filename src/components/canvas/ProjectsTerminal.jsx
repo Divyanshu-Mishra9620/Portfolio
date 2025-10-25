@@ -9,7 +9,6 @@ const ProjectsTerminal = ({ isMobile }) => {
   const [displayedLines, setDisplayedLines] = useState([]);
   const [isComplete, setIsComplete] = useState(false);
 
-  // Build commands with project information
   const buildCommands = () => {
     const commands = [
       "$ git fetch --all --projects",
@@ -21,7 +20,6 @@ const ProjectsTerminal = ({ isMobile }) => {
       "",
     ];
 
-    // Add each project with description
     projects.forEach((project, index) => {
       commands.push(`[${index + 1}] ${project.name.toUpperCase()}`);
       commands.push(`├─ Description: ${project.description}`);
@@ -61,19 +59,15 @@ const ProjectsTerminal = ({ isMobile }) => {
           });
 
           charIndexRef.current += 1;
-          // Faster typing for descriptions (20ms)
           timerRef.current = setTimeout(typeNextCharacter, 20);
         } else {
-          // Move to next line
           charIndexRef.current = 0;
           lineIndexRef.current += 1;
           setDisplayedLines((prev) => [...prev, ""]);
-          // Faster delay between lines (150ms)
           timerRef.current = setTimeout(typeNextCharacter, 150);
         }
       } else {
         setIsComplete(true);
-        // Auto-scroll to bottom
         if (contentRef.current) {
           contentRef.current.scrollTop = contentRef.current.scrollHeight;
         }
@@ -88,7 +82,6 @@ const ProjectsTerminal = ({ isMobile }) => {
   }, []);
 
   useEffect(() => {
-    // Auto-scroll to bottom when new lines are added
     if (contentRef.current) {
       setTimeout(() => {
         contentRef.current.scrollTop = contentRef.current.scrollHeight;
@@ -102,7 +95,6 @@ const ProjectsTerminal = ({ isMobile }) => {
         isMobile ? "h-[500px]" : "h-[600px]"
       }`}
     >
-      {/* Terminal Header */}
       <div className="bg-slate-950 px-3 md:px-4 py-2 md:py-3 flex items-center gap-2 border-b border-[#915EFF] border-opacity-30">
         <div className="flex gap-2">
           <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
@@ -114,7 +106,6 @@ const ProjectsTerminal = ({ isMobile }) => {
         </span>
       </div>
 
-      {/* Terminal Content */}
       <div
         ref={contentRef}
         className="flex-1 overflow-y-auto p-3 md:p-4 font-mono text-xs md:text-sm space-y-0"
@@ -123,19 +114,18 @@ const ProjectsTerminal = ({ isMobile }) => {
           let lineColor = "text-[#00d4ff]";
           let lineClass = "";
 
-          // Color code different types of lines
           if (line.includes("Description:")) {
-            lineColor = "text-[#a8e6cf]"; // Green for descriptions
+            lineColor = "text-[#a8e6cf]";
             lineClass = "font-semibold";
           } else if (line.includes("Tech:")) {
-            lineColor = "text-[#ffd3b6]"; // Orange for tech stack
+            lineColor = "text-[#ffd3b6]";
           } else if (line.includes("Source:") || line.includes("Live:")) {
-            lineColor = "text-[#ff8b94]"; // Red/pink for links
+            lineColor = "text-[#ff8b94]";
           } else if (line.match(/^\[\d+\]/)) {
-            lineColor = "text-[#915EFF]"; // Purple for project titles
+            lineColor = "text-[#915EFF]";
             lineClass = "font-bold text-sm md:text-base";
           } else if (line.includes("✓")) {
-            lineColor = "text-[#00ff00]"; // Green for success
+            lineColor = "text-[#00ff00]";
             lineClass = "font-bold";
           }
 
@@ -153,7 +143,6 @@ const ProjectsTerminal = ({ isMobile }) => {
         })}
       </div>
 
-      {/* Terminal Footer */}
       {isComplete && (
         <div className="bg-slate-950 px-3 md:px-4 py-2 border-t border-[#915EFF] border-opacity-30 text-[#00d4ff] font-mono text-xs md:text-sm flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />

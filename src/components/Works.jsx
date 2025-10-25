@@ -36,7 +36,6 @@ const ProjectCard = ({
           />
 
           <div className="absolute inset-0 flex justify-end m-3 card-img_hover gap-2">
-            {/* GitHub Repository Icon */}
             <div
               onClick={() => window.open(source_code_link, "_blank")}
               className="w-10 h-10 rounded-full flex justify-center items-center cursor-pointer bg-black bg-opacity-60 hover:bg-opacity-80 transition-all duration-300 hover:scale-110 shadow-lg backdrop-blur-sm"
@@ -56,7 +55,6 @@ const ProjectCard = ({
               />
             </div>
 
-            {/* Live Demo Icon */}
             {deployed_link && (
               <div
                 onClick={() => window.open(deployed_link, "_blank")}
@@ -144,7 +142,6 @@ const Works = () => {
         </motion.p>
       </div>
 
-      {/* Projects with Interactive Terminals */}
       <div className="mt-20 w-full">
         {projects.map((project, index) => (
           <motion.div
@@ -153,21 +150,17 @@ const Works = () => {
             variants={fadeIn("up", "spring", index * 0.2, 0.75)}
             className="mb-12"
           >
-            {/* Desktop: Side by side layout with connecting line */}
             <div className="hidden lg:block relative">
               <div className="lg:grid lg:grid-cols-2 gap-8 items-start">
-                {/* Project Card */}
                 <div>
                   <ProjectCard index={index} {...project} />
                 </div>
 
-                {/* Connecting Line - Desktop */}
                 <div className="absolute top-0 left-1/2 w-1/2 h-full flex items-center pointer-events-none">
                   <svg
                     className="absolute left-0 top-0 w-full h-full"
                     style={{ overflow: "visible" }}
                   >
-                    {/* Animated dashed line */}
                     <motion.path
                       d="M 0 60 Q 100 120 200 60"
                       stroke="#915EFF"
@@ -182,7 +175,6 @@ const Works = () => {
                         ease: "linear",
                       }}
                     />
-                    {/* Glowing circle at end */}
                     <motion.circle
                       cx="200"
                       cy="60"
@@ -200,7 +192,6 @@ const Works = () => {
                   </svg>
                 </div>
 
-                {/* Interactive Terminal */}
                 <div>
                   <ProjectTerminal
                     projectName={project.name}
@@ -217,21 +208,17 @@ const Works = () => {
               </div>
             </div>
 
-            {/* Tablet: Side by side with adjusted layout */}
             <div className="hidden md:block lg:hidden relative">
               <div className="md:grid md:grid-cols-2 gap-6 items-start">
-                {/* Project Card */}
                 <div>
                   <ProjectCard index={index} {...project} />
                 </div>
 
-                {/* Connecting Line - Tablet */}
                 <div className="absolute top-0 left-1/2 w-1/2 h-full flex items-center pointer-events-none">
                   <svg
                     className="absolute left-0 top-0 w-full h-full"
                     style={{ overflow: "visible" }}
                   >
-                    {/* Animated dashed line */}
                     <motion.path
                       d="M 0 50 Q 60 100 120 50"
                       stroke="#915EFF"
@@ -246,7 +233,6 @@ const Works = () => {
                         ease: "linear",
                       }}
                     />
-                    {/* Glowing circle at end */}
                     <motion.circle
                       cx="120"
                       cy="50"
@@ -264,7 +250,6 @@ const Works = () => {
                   </svg>
                 </div>
 
-                {/* Interactive Terminal */}
                 <div>
                   <ProjectTerminal
                     projectName={project.name}
@@ -281,17 +266,13 @@ const Works = () => {
               </div>
             </div>
 
-            {/* Mobile: Stacked layout with vertical connecting line */}
             <div className="md:hidden flex flex-col gap-6 relative">
-              {/* Project Card */}
               <div>
                 <ProjectCard index={index} {...project} />
               </div>
 
-              {/* Connecting Line - Mobile (Vertical) */}
               <div className="flex justify-center h-8 pointer-events-none">
                 <svg width="40" height="32" style={{ overflow: "visible" }}>
-                  {/* Animated vertical dashed line */}
                   <motion.line
                     x1="20"
                     y1="0"
@@ -308,7 +289,6 @@ const Works = () => {
                       ease: "linear",
                     }}
                   />
-                  {/* Animated dots along the line */}
                   <motion.circle
                     cx="20"
                     cy="16"
@@ -327,7 +307,6 @@ const Works = () => {
                 </svg>
               </div>
 
-              {/* Interactive Terminal */}
               <div>
                 <ProjectTerminal
                   projectName={project.name}

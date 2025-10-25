@@ -2,7 +2,6 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
-// import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
@@ -53,7 +52,6 @@ const Contact = () => {
       [name]: value,
     });
 
-    // Clear error for this field when user starts typing
     if (errors[name]) {
       setErrors({
         ...errors,
@@ -106,7 +104,6 @@ const Contact = () => {
       );
   };
 
-  // Handle terminal form submission
   const handleTerminalSubmit = (terminalFormData) => {
     return new Promise((resolve, reject) => {
       emailjs
@@ -135,24 +132,23 @@ const Contact = () => {
 
   return (
     <div className="w-full">
-      {/* Main container - full width responsive */}
-      <div className="flex flex-col xl:flex-row gap-6 xl:gap-10 w-full">
-        {/* 3D Earth Canvas */}
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 w-full">
         <motion.div
           variants={slideIn("right", "tween", 0.2, 1)}
           initial="show"
           animate="show"
-          className="w-full xl:w-1/2 xl:h-auto h-[300px] md:h-[400px]"
+          className="w-full lg:w-1/2 h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center"
         >
-          <EarthCanvas />
+          <div className="w-full h-full">
+            <EarthCanvas />
+          </div>
         </motion.div>
 
-        {/* Contact Terminal - Always visible */}
         <motion.div
           variants={slideIn("up", "tween", 0.3, 1)}
           initial="show"
           animate="show"
-          className="w-full xl:w-1/2"
+          className="w-full lg:w-1/2 h-[400px] sm:h-[500px] md:h-[600px] lg:h-auto"
         >
           <ContactTerminal onSubmit={handleTerminalSubmit} isMobile={false} />
         </motion.div>

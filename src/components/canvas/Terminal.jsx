@@ -63,9 +63,7 @@ const Terminal = () => {
       transition={{ duration: 0.8, delay: 0.3 }}
       className="relative w-full h-full backdrop-blur-md pointer-events-auto"
     >
-      {/* Terminal Container */}
       <div className="bg-black bg-opacity-70 h-full w-full rounded-lg border-2 border-[#915EFF] border-opacity-50 overflow-hidden shadow-2xl shadow-purple-500/20 flex flex-col">
-        {/* Terminal Header */}
         <div className="bg-gradient-to-r from-[#915EFF] to-[#00d4ff] bg-opacity-20 px-3 xs:px-4 py-2 xs:py-3 flex items-center gap-2 xs:gap-3 border-b border-[#915EFF] border-opacity-30 flex-shrink-0">
           <div className="flex gap-1 xs:gap-2">
             <div className="w-2 xs:w-3 h-2 xs:h-3 rounded-full bg-red-500 opacity-80" />
@@ -77,7 +75,6 @@ const Terminal = () => {
           </span>
         </div>
 
-        {/* Terminal Content */}
         <div className="p-3 xs:p-4 md:p-6 font-mono text-xs xs:text-sm flex-1 overflow-y-auto scrollbar-thin scrollbar-track-black scrollbar-thumb-[#915EFF]">
           <div className="text-[#00d4ff] whitespace-pre-wrap break-words leading-relaxed">
             {displayedText}
@@ -85,7 +82,6 @@ const Terminal = () => {
           </div>
         </div>
 
-        {/* Terminal Footer - Status Line */}
         {!isTyping && (
           <motion.div
             initial={{ opacity: 0 }}

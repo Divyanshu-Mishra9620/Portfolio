@@ -5,7 +5,6 @@ const PageLoader = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading time or wait for critical resources
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2000);
@@ -23,7 +22,6 @@ const PageLoader = () => {
           className="fixed inset-0 z-50 flex items-center justify-center bg-primary"
         >
           <div className="flex flex-col items-center gap-4">
-            {/* Animated Logo/Spinner */}
             <motion.div
               animate={{
                 rotate: 360,
@@ -44,7 +42,6 @@ const PageLoader = () => {
               className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500"
             />
 
-            {/* Loading Text */}
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -54,7 +51,6 @@ const PageLoader = () => {
               Loading Portfolio...
             </motion.p>
 
-            {/* Loading Bar */}
             <div className="w-48 h-1 bg-tertiary rounded-full overflow-hidden">
               <motion.div
                 initial={{ width: "0%" }}

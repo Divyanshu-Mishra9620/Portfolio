@@ -8,12 +8,10 @@ const Earth = () => {
   const earth = useGLTF("./planet/scene.gltf");
 
   useEffect(() => {
-    // Validate and fix geometries in the scene
     earth.scene.traverse((child) => {
       if (child.isMesh && child.geometry) {
         const geometry = child.geometry;
 
-        // Check and fix position attribute
         if (geometry.attributes.position) {
           const positions = geometry.attributes.position.array;
           let hasNaN = false;
@@ -30,7 +28,6 @@ const Earth = () => {
           }
         }
 
-        // Recompute bounding sphere to ensure it's valid
         geometry.computeBoundingSphere();
       }
     });
@@ -59,6 +56,7 @@ const EarthCanvas = () => {
         far: 200,
         position: [-4, 3, 6],
       }}
+      style={{ width: "100%", height: "100%" }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
