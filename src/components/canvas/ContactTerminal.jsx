@@ -279,6 +279,7 @@ const ContactTerminal = ({ onSubmit, isMobile }) => {
               ? `Enter ${currentStep}...`
               : "Type command or 'help'..."
           }
+          enterKeyHint="send"
           className="flex-1 bg-transparent text-[#00d4ff] font-mono text-xs md:text-sm outline-none placeholder-[#00d4ff] placeholder-opacity-50"
           disabled={isProcessing}
           autoFocus

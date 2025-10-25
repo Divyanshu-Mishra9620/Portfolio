@@ -10,7 +10,7 @@ const StarWrapper = (Component, idName) =>
         initial="show"
         animate="show"
         variants={staggerContainer()}
-        className={`${styles.padding} max-w-7xl mx-auto relative z-0`}
+        className={`${styles.padding} max-w-7xl mx-auto relative z-0 w-full`}
       >
         <span className="hash-span" id={idName}>
           &nbsp;

@@ -117,6 +117,13 @@ const Works = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const handleScrollToNextProject = (index) => {
+    const nextProjectElement = document.querySelector(`#project-${index + 1}`);
+    if (nextProjectElement) {
+      nextProjectElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
       <motion.div variants={textVariant()}>
@@ -142,6 +149,7 @@ const Works = () => {
         {projects.map((project, index) => (
           <motion.div
             key={`project-${index}`}
+            id={`project-${index}`}
             variants={fadeIn("up", "spring", index * 0.2, 0.75)}
             className="mb-12"
           >
@@ -199,6 +207,11 @@ const Works = () => {
                     githubLink={project.source_code_link}
                     liveLink={project.deployed_link}
                     isMobile={false}
+                    onNext={
+                      index < projects.length - 1
+                        ? () => handleScrollToNextProject(index)
+                        : null
+                    }
                   />
                 </div>
               </div>
@@ -258,6 +271,11 @@ const Works = () => {
                     githubLink={project.source_code_link}
                     liveLink={project.deployed_link}
                     isMobile={true}
+                    onNext={
+                      index < projects.length - 1
+                        ? () => handleScrollToNextProject(index)
+                        : null
+                    }
                   />
                 </div>
               </div>
@@ -316,6 +334,11 @@ const Works = () => {
                   githubLink={project.source_code_link}
                   liveLink={project.deployed_link}
                   isMobile={true}
+                  onNext={
+                    index < projects.length - 1
+                      ? () => handleScrollToNextProject(index)
+                      : null
+                  }
                 />
               </div>
             </div>

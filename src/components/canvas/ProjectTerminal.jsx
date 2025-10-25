@@ -1,6 +1,12 @@
 import { useRef, useEffect, useState } from "react";
 
-const ProjectTerminal = ({ projectName, githubLink, liveLink, isMobile }) => {
+const ProjectTerminal = ({
+  projectName,
+  githubLink,
+  liveLink,
+  isMobile,
+  onNext,
+}) => {
   const contentRef = useRef(null);
   const [command, setCommand] = useState("");
   const [output, setOutput] = useState([
@@ -53,12 +59,22 @@ const ProjectTerminal = ({ projectName, githubLink, liveLink, isMobile }) => {
           "",
         ]);
       }
+    } else if (cmd === "next") {
+      if (onNext) {
+        setOutput((prev) => [...prev, "> Scrolling to next project...", ""]);
+        setTimeout(() => {
+          onNext();
+        }, 300);
+      } else {
+        setOutput((prev) => [...prev, "✗ No next project available", ""]);
+      }
     } else if (cmd === "help") {
       setOutput((prev) => [
         ...prev,
         "Available commands:",
         "  github  - Open GitHub repository",
         ...(liveLink ? ["  live    - Open live demo"] : []),
+        "  next    - Scroll to next project",
         "  help    - Show this help message",
         "  clear   - Clear terminal",
         "",
@@ -140,6 +156,7 @@ const ProjectTerminal = ({ projectName, githubLink, liveLink, isMobile }) => {
           onChange={(e) => setCommand(e.target.value)}
           onKeyPress={handleKeyPress}
           placeholder="Type command..."
+          enterKeyHint="send"
           className="flex-1 bg-transparent text-[#00d4ff] font-mono text-xs md:text-sm outline-none placeholder-[#00d4ff] placeholder-opacity-50"
           autoFocus
         />
