@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 
@@ -26,19 +26,21 @@ const ProjectCard = ({
           scale: 1,
           speed: 450,
         }}
-        className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20"
+        className="relative bg-gradient-to-br from-slate-900 to-slate-950 p-5 rounded-lg sm:w-[360px] w-full cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/50 border border-[#915EFF] border-opacity-30 hover:border-opacity-100 backdrop-blur-sm"
       >
+        <div className="absolute -inset-0.5 bg-gradient-to-r from-[#915EFF] to-[#00d4ff] rounded-lg blur opacity-0 hover:opacity-75 transition duration-500 -z-10" />
+
         <div className="relative w-full h-[230px] group">
           <img
             src={image}
             alt={`${name} project screenshot`}
-            className="w-full h-full object-cover rounded-2xl transition-transform duration-300 group-hover:scale-105"
+            className="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105 border border-[#00d4ff] border-opacity-20"
           />
 
-          <div className="absolute inset-0 flex justify-end m-3 card-img_hover gap-2">
+          <div className="absolute inset-0 flex justify-end m-3 gap-2">
             <div
               onClick={() => window.open(source_code_link, "_blank")}
-              className="w-10 h-10 rounded-full flex justify-center items-center cursor-pointer bg-black bg-opacity-60 hover:bg-opacity-80 transition-all duration-300 hover:scale-110 shadow-lg backdrop-blur-sm"
+              className="w-10 h-10 rounded-full flex justify-center items-center cursor-pointer bg-gradient-to-br from-[#915EFF] to-[#915EFF]/60 hover:from-[#915EFF] hover:to-[#915EFF] transition-all duration-300 hover:scale-110 shadow-lg backdrop-blur-sm border border-[#915EFF] border-opacity-50 hover:border-opacity-100 hover:shadow-[0_0_20px_rgba(145,94,255,0.6)]"
               role="button"
               aria-label={`View ${name} GitHub repository`}
               tabIndex={0}
@@ -58,7 +60,7 @@ const ProjectCard = ({
             {deployed_link && (
               <div
                 onClick={() => window.open(deployed_link, "_blank")}
-                className="w-10 h-10 rounded-full flex justify-center items-center cursor-pointer bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 hover:scale-110 shadow-lg"
+                className="w-10 h-10 rounded-full flex justify-center items-center cursor-pointer bg-gradient-to-br from-[#00d4ff] to-[#00d4ff]/60 hover:from-[#00d4ff] hover:to-[#00d4ff] transition-all duration-300 hover:scale-110 shadow-lg backdrop-blur-sm border border-[#00d4ff] border-opacity-50 hover:border-opacity-100 hover:shadow-[0_0_20px_rgba(0,212,255,0.6)]"
                 role="button"
                 aria-label={`View ${name} live demo`}
                 tabIndex={0}
@@ -79,10 +81,10 @@ const ProjectCard = ({
         </div>
 
         <div className="mt-5">
-          <h3 className="text-white font-bold text-[24px] hover:text-purple-400 transition-colors duration-300">
-            {name}
+          <h3 className="text-[#00d4ff] font-bold text-[20px] font-mono hover:text-[#915EFF] transition-colors duration-300 flex items-center gap-2">
+            <span className="text-[#915EFF]">&gt;</span> {name}
           </h3>
-          <p className="mt-2 text-secondary text-[14px] leading-relaxed">
+          <p className="mt-2 text-gray-300 text-[14px] leading-relaxed font-mono opacity-80">
             {description}
           </p>
         </div>
@@ -91,9 +93,21 @@ const ProjectCard = ({
           {tags.map((tag) => (
             <p
               key={`${name}-${tag.name}`}
-              className={`text-[14px] ${tag.color} px-2 py-1 rounded-md bg-opacity-10 backdrop-blur-sm transition-transform hover:scale-110`}
+              className={`text-[12px] font-mono px-2 py-1 rounded-md bg-gradient-to-r ${
+                tag.color
+              } bg-opacity-20 border ${
+                tag.color.includes("blue")
+                  ? "border-blue-500"
+                  : tag.color.includes("green")
+                  ? "border-green-500"
+                  : tag.color.includes("pink")
+                  ? "border-pink-500"
+                  : "border-yellow-500"
+              } border-opacity-50 transition-all hover:border-opacity-100 hover:shadow-lg hover:shadow-${
+                tag.color.split("-")[1]
+              }-500/20`}
             >
-              #{tag.name}
+              <span className="text-[#915EFF]">$</span> {tag.name}
             </p>
           ))}
         </div>
@@ -103,36 +117,49 @@ const ProjectCard = ({
 };
 
 const Works = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 900);
-    };
+    const handleResize = () => {};
 
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const handleScrollToNextProject = (index) => {
-    const nextProjectElement = document.querySelector(`#project-${index + 1}`);
-    if (nextProjectElement) {
-      nextProjectElement.scrollIntoView({ behavior: "smooth" });
+  const handleScrollToNextProject = (projectName) => {
+    const currentIndex = projects.findIndex((p) => p.name === projectName);
+    if (currentIndex < projects.length - 1) {
+      const nextProjectElement = document.querySelector(
+        `#project-${projects[currentIndex + 1].name}`
+      );
+      if (nextProjectElement) {
+        nextProjectElement.scrollIntoView({ behavior: "smooth" });
+      }
     }
   };
 
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} `}>My work</p>
-        <h2 className={`${styles.sectionHeadText}`}>Projects.</h2>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-1 h-8 bg-gradient-to-b from-[#915EFF] to-[#00d4ff]" />
+          <p className="text-[#00d4ff] font-mono text-sm uppercase tracking-widest">
+            &gt; portfolio.projects()
+          </p>
+        </div>
+        <h2 className={`${styles.sectionHeadText} font-black text-white`}>
+          <span className="text-[#00d4ff]">{"<"}</span> Works{" "}
+          <span className="text-[#915EFF]">{"/"}</span>
+          <span className="text-[#00d4ff]">{">"}</span>
+        </h2>
+        <p className="text-[#00d4ff] font-mono text-xs mt-2 opacity-70">
+          {/* Interactive project showcase with live previews */}
+        </p>
       </motion.div>
 
       <div className="w-full flex">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
+          className="mt-3 text-gray-300 text-[17px] max-w-3xl leading-[30px] font-mono"
         >
           Following projects showcases my skills and experience through
           real-world examples of my work. Each project is briefly described with
@@ -145,8 +172,8 @@ const Works = () => {
       <div className="mt-20 w-full">
         {projects.map((project, index) => (
           <motion.div
-            key={`project-${index}`}
-            id={`project-${index}`}
+            key={project.name}
+            id={`project-${project.name}`}
             variants={fadeIn("up", "spring", index * 0.2, 0.75)}
             className="mb-12"
           >
@@ -200,7 +227,7 @@ const Works = () => {
                     isMobile={false}
                     onNext={
                       index < projects.length - 1
-                        ? () => handleScrollToNextProject(index)
+                        ? () => handleScrollToNextProject(project.name)
                         : null
                     }
                   />
@@ -258,7 +285,7 @@ const Works = () => {
                     isMobile={true}
                     onNext={
                       index < projects.length - 1
-                        ? () => handleScrollToNextProject(index)
+                        ? () => handleScrollToNextProject(project.name)
                         : null
                     }
                   />
@@ -315,7 +342,7 @@ const Works = () => {
                   isMobile={true}
                   onNext={
                     index < projects.length - 1
-                      ? () => handleScrollToNextProject(index)
+                      ? () => handleScrollToNextProject(project.name)
                       : null
                   }
                 />

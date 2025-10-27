@@ -2,7 +2,6 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
-import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 import ContactTerminal from "./canvas/ContactTerminal";
@@ -139,8 +138,93 @@ const Contact = () => {
           animate="show"
           className="w-full lg:w-1/2 h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center"
         >
-          <div className="w-full h-full">
-            <EarthCanvas />
+          <div className="w-full h-full relative group rounded-lg overflow-hidden border border-[#915EFF] border-opacity-30 group-hover:border-opacity-100 bg-gradient-to-br from-slate-900 to-slate-950 backdrop-blur-sm transition-all duration-300">
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#915EFF] to-[#00d4ff] rounded-lg blur opacity-0 group-hover:opacity-50 transition duration-500 -z-10" />
+
+            <div className="w-full h-full flex items-center justify-center">
+              <svg
+                viewBox="0 0 200 200"
+                className="w-4/5 h-4/5 filter drop-shadow-lg"
+              >
+                <defs>
+                  <radialGradient id="earthGradient">
+                    <stop offset="0%" stopColor="#00d4ff" />
+                    <stop offset="50%" stopColor="#0080ff" />
+                    <stop offset="100%" stopColor="#001a4d" />
+                  </radialGradient>
+                  <filter id="glow">
+                    <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                    <feMerge>
+                      <feMergeNode in="coloredBlur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+
+                <motion.circle
+                  cx="100"
+                  cy="100"
+                  r="80"
+                  fill="url(#earthGradient)"
+                  filter="url(#glow)"
+                  animate={{
+                    opacity: [0.8, 1, 0.8],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                  }}
+                />
+
+                <motion.circle
+                  cx="100"
+                  cy="100"
+                  r="85"
+                  fill="none"
+                  stroke="#915EFF"
+                  strokeWidth="2"
+                  opacity="0.5"
+                  animate={{
+                    r: [85, 95, 85],
+                    opacity: [0.5, 0.2, 0.5],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                  }}
+                />
+
+                <motion.circle
+                  cx="100"
+                  cy="100"
+                  r="90"
+                  fill="none"
+                  stroke="#00d4ff"
+                  strokeWidth="1"
+                  opacity="0.3"
+                  animate={{
+                    r: [90, 100, 90],
+                    opacity: [0.3, 0.1, 0.3],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                  }}
+                />
+
+                <circle cx="130" cy="70" r="3" fill="#915EFF" opacity="0.7" />
+                <circle cx="60" cy="120" r="2" fill="#00d4ff" opacity="0.7" />
+                <circle cx="100" cy="50" r="2.5" fill="#915EFF" opacity="0.6" />
+              </svg>
+            </div>
+
+            <div className="absolute top-4 left-4 text-[#00d4ff] font-mono text-xs opacity-70">
+              &gt; earth.ping()
+            </div>
+            <div className="absolute bottom-4 right-4 text-[#915EFF] font-mono text-xs opacity-70">
+              Status: [<span className="text-green-400 animate-pulse">●</span>]
+              Connected
+            </div>
           </div>
         </motion.div>
 
