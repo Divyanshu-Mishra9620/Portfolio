@@ -16,26 +16,24 @@ const ExperienceCard = ({ experience }) => {
   return (
     <VerticalTimelineElement
       contentStyle={{
-        background: "linear-gradient(to br, #1a1a2e 0%, #0f3460 100%)",
+        background: "#0f172a",
         color: "#fff",
-        boxShadow: "0 10px 30px rgba(145, 94, 255, 0.3)",
-        border: "1px solid rgba(145, 94, 255, 0.5)",
+        boxShadow: "0 4px 20px rgba(0, 0, 0, 0.5)",
+        border: "1px solid rgba(148, 163, 184, 0.2)",
         borderRadius: "0.5rem",
-        backdropFilter: "blur(10px)",
       }}
       contentArrowStyle={{
-        borderRight: "7px solid rgba(145, 94, 255, 0.5)",
+        borderRight: "7px solid #0f172a",
       }}
       date={
-        <span className="font-mono text-[#00d4ff] font-bold">
+        <span className="font-mono text-white font-bold">
           {">"} {experience.date}
         </span>
       }
       iconStyle={{
         background: experience.iconBg,
-        boxShadow:
-          "0 0 20px rgba(145, 94, 255, 0.8), inset 0 0 20px rgba(0, 212, 255, 0.2)",
-        border: "2px solid rgba(145, 94, 255, 0.6)",
+        boxShadow: "0 0 10px rgba(145, 94, 255, 0.5)",
+        border: "2px solid rgba(145, 94, 255, 0.3)",
       }}
       icon={
         <div className="flex justify-center items-center w-full h-full">
@@ -48,11 +46,11 @@ const ExperienceCard = ({ experience }) => {
       }
     >
       <div>
-        <h3 className="text-[#00d4ff] text-[24px] font-bold font-mono">
+        <h3 className="text-white text-[24px] font-bold font-mono">
           <span className="text-[#915EFF]">{"$"}</span> {experience.title}
         </h3>
         <p
-          className="text-[#00d4ff] text-[16px] font-semibold font-mono opacity-80"
+          className="text-gray-300 text-[16px] font-semibold font-mono"
           style={{ margin: 0 }}
         >
           @ {experience.company_name}
@@ -90,9 +88,7 @@ const Experience = () => {
           <span className="text-[#915EFF]">{"/"}</span>
           <span className="text-[#00d4ff]">{">"}</span>
         </h2>
-        <p className="text-[#00d4ff] font-mono text-xs mt-2 opacity-70 text-center">
-          {/* Work history and achievements */}
-        </p>
+        <p className="text-[#00d4ff] font-mono text-xs mt-2 opacity-70 text-center"></p>
       </motion.div>
 
       <div className="mt-20 flex flex-col">

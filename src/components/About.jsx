@@ -11,10 +11,8 @@ const ServiceCard = ({ index, title, icon }) => (
     variants={fadeIn("right", "spring", index * 0.5, 0.75)}
     className="xs:w-[250px] w-full relative group"
   >
-    <div className="absolute -inset-0.5 bg-gradient-to-r from-[#915EFF] to-[#00d4ff] rounded-lg blur opacity-0 group-hover:opacity-75 transition duration-500 -z-10" />
-
-    <div className="relative bg-gradient-to-br from-slate-900 to-slate-950 rounded-lg p-6 min-h-[280px] flex justify-center items-center flex-col transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/50 border border-[#915EFF] border-opacity-30 group-hover:border-opacity-100 backdrop-blur-sm">
-      <div className="mb-4 p-4 rounded-lg bg-gradient-to-br from-[#915EFF]/20 to-[#00d4ff]/20 border border-[#915EFF] border-opacity-50 transition-transform duration-300 group-hover:scale-110">
+    <div className="relative bg-gradient-to-br from-slate-900 to-slate-950 rounded-lg p-6 min-h-[280px] flex justify-center items-center flex-col transition-all duration-300 hover:shadow-lg hover:shadow-purple-900/30 border border-slate-700 group-hover:border-[#915EFF] backdrop-blur-sm">
+      <div className="mb-4 p-4 rounded-lg bg-slate-800 border border-slate-700 transition-transform duration-300 group-hover:scale-110">
         <img
           src={icon}
           alt={`${title} icon`}
@@ -22,11 +20,11 @@ const ServiceCard = ({ index, title, icon }) => (
         />
       </div>
 
-      <h3 className="text-[#00d4ff] text-[18px] font-bold text-center font-mono group-hover:text-[#915EFF] transition-colors duration-300">
+      <h3 className="text-white text-[18px] font-bold text-center font-mono group-hover:text-[#915EFF] transition-colors duration-300">
         <span className="text-[#915EFF]">{">"}</span> {title}
       </h3>
 
-      <div className="mt-3 w-full h-px bg-gradient-to-r from-[#915EFF] via-[#00d4ff] to-transparent opacity-50" />
+      <div className="mt-3 w-full h-px bg-slate-700 opacity-50" />
     </div>
   </motion.div>
 );
@@ -46,20 +44,24 @@ const About = () => {
           <span className="text-[#915EFF]">{"/"}</span>
           <span className="text-[#00d4ff]">{">"}</span>
         </h2>
-        <p className="text-[#00d4ff] font-mono text-xs mt-2 opacity-70">
-          {/* Full-stack developer profile */}
-        </p>
+        <p className="text-[#00d4ff] font-mono text-xs mt-2 opacity-70"></p>
       </motion.div>
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
         className="mt-4 text-gray-300 text-[17px] max-w-3xl leading-[30px] font-mono"
       >
-        As a full-stack developer, I work across the stack — React, Next.js,
-        Node.js, Express, MongoDB, Django, and WebSockets to deliver complete
-        end to end solutions. Whether it’s a real time chat app, a scalable
-        e-commerce platform, or a secure authentication system, I bring ideas to
-        life with efficiency and impact.
+        I’m a Full-Stack & AI Engineer who loves building systems that are fast,
+        scalable, and intelligent. I work across the entire stack—Next.js,
+        Node.js, Django, PostgreSQL, WebSockets, and modern AI tooling like
+        LangChain, vector databases, and LLM APIs. I enjoy solving real
+        engineering problems: real-time communication, search & indexing, RAG
+        architectures, authentication, system design, caching, and performance
+        optimization. I’ve built projects ranging from an AI-powered farmer
+        assistant (RAG + CV + geospatial analysis) to real-time chat and
+        ride-booking platforms, scalable ecommerce systems, and AI chat-based
+        health assistants. My goal is simple: Build products that feel fast,
+        smart, and meaningful.
       </motion.p>
 
       <div className="mt-20 flex flex-wrap gap-10 justify-center">

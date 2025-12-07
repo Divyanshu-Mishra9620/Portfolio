@@ -32,18 +32,23 @@ const Hero = () => {
               className={`absolute inset-0 top-[80px] md:top-[120px] max-w-full ${styles.paddingX} flex flex-row items-start gap-3 md:gap-5 z-10 pointer-events-none`}
             >
               <div className="flex flex-col justify-center items-center mt-5 pointer-events-auto flex-shrink-0">
-                <div className="w-4 md:w-5 h-4 md:h-5 rounded-full bg-[#915EFF] animate-pulse" />
+                <div className="w-4 md:w-5 h-4 md:h-5 rounded-full bg-[#915EFF] animate-pulse shadow-lg shadow-purple-500/50" />
                 <div className="w-1 h-40 md:h-80 violet-gradient" />
               </div>
 
               <div className="pointer-events-auto">
-                <h1 className={`${styles.heroHeadText}`}>
-                  Hi, I'm <span className="text-[#dfd9ff]">Divyanshu</span>
+                <h1
+                  className={`${styles.heroHeadText} text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]`}
+                >
+                  Hi, I'm{" "}
+                  <span className="text-[#915EFF]">Divyanshu Mishra</span>
                 </h1>
-                <p className={`${styles.heroSubText} mt-2 text-gray-400`}>
-                  Passionate developer crafting innovative solutions
-                  <br className="sm:block hidden" />
-                  with code and creativity.
+                <p
+                  className={`${styles.heroSubText} mt-2 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]`}
+                >
+                  Full-Stack & AI Engineer building{" "}
+                  <br className="hidden md:block" />
+                  real-time, scalable, and intelligent systems.
                 </p>
               </div>
             </div>
@@ -68,16 +73,17 @@ const Hero = () => {
               className={`absolute inset-0 top-[40px] max-w-full ${styles.paddingX} flex flex-col items-center justify-center text-center z-10 pointer-events-none`}
             >
               <div className="flex flex-col items-center gap-2 pointer-events-auto">
-                <div className="w-4 h-4 rounded-full bg-[#16131a] animate-pulse" />
-                <h1 className="font-black text-gray-300 text-[28px] xs:text-[36px] leading-tight">
-                  Hi, I'm <span className="text-[#dfd9ff]">Divyanshu</span>
+                <div className="w-4 h-4 rounded-full bg-[#915EFF] animate-pulse shadow-lg shadow-purple-500/50" />
+                <h1 className="font-black text-white text-[28px] xs:text-[36px] leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+                  Hi, I'm{" "}
+                  <span className="text-[#915EFF]">Divyanshu Mishra</span>
                 </h1>
-                <p className="font-medium text-[14px] xs:text-[16px] text-gray-200 mt-2">
-                  Passionate developer crafting
+                <p className="font-semibold text-[14px] xs:text-[16px] text-white mt-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                  Full-Stack & AI Engineer
                   <br />
-                  innovative solutions with
+                  building real-time, scalable,
                   <br />
-                  code and creativity.
+                  and intelligent systems.
                 </p>
               </div>
             </div>

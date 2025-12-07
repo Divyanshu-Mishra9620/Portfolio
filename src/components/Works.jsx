@@ -40,7 +40,7 @@ const ProjectCard = ({
           <div className="absolute inset-0 flex justify-end m-3 gap-2">
             <div
               onClick={() => window.open(source_code_link, "_blank")}
-              className="w-10 h-10 rounded-full flex justify-center items-center cursor-pointer bg-gradient-to-br from-[#915EFF] to-[#915EFF]/60 hover:from-[#915EFF] hover:to-[#915EFF] transition-all duration-300 hover:scale-110 shadow-lg backdrop-blur-sm border border-[#915EFF] border-opacity-50 hover:border-opacity-100 hover:shadow-[0_0_20px_rgba(145,94,255,0.6)]"
+              className="relative w-10 h-10 rounded-full flex justify-center items-center cursor-pointer bg-black hover:bg-gray-900 transition-all duration-300 hover:scale-110 border-2 border-white shadow-lg group/icon"
               role="button"
               aria-label={`View ${name} GitHub repository`}
               tabIndex={0}
@@ -53,14 +53,19 @@ const ProjectCard = ({
               <img
                 src={github}
                 alt="GitHub repository"
-                className="w-3/4 h-3/4 object-contain"
+                className="w-7 h-7 object-contain"
+                style={{ filter: "brightness(0) invert(1)" }}
               />
+              <div className="absolute bottom-full mb-2 hidden group-hover/icon:block pointer-events-none bg-black text-white text-xs rounded py-1 px-2 whitespace-nowrap z-50">
+                View on GitHub
+                <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-black"></div>
+              </div>
             </div>
 
             {deployed_link && (
               <div
                 onClick={() => window.open(deployed_link, "_blank")}
-                className="w-10 h-10 rounded-full flex justify-center items-center cursor-pointer bg-gradient-to-br from-[#00d4ff] to-[#00d4ff]/60 hover:from-[#00d4ff] hover:to-[#00d4ff] transition-all duration-300 hover:scale-110 shadow-lg backdrop-blur-sm border border-[#00d4ff] border-opacity-50 hover:border-opacity-100 hover:shadow-[0_0_20px_rgba(0,212,255,0.6)]"
+                className="relative w-10 h-10 rounded-full flex justify-center items-center cursor-pointer bg-gradient-to-br from-[#915EFF] to-[#7c3aed] hover:from-[#7c3aed] hover:to-[#6d28d9] transition-all duration-300 hover:scale-110 border-2 border-white shadow-lg shadow-purple-500/50 group/icon"
                 role="button"
                 aria-label={`View ${name} live demo`}
                 tabIndex={0}
@@ -73,18 +78,23 @@ const ProjectCard = ({
                 <img
                   src={externalLink}
                   alt="Live demo"
-                  className="w-5 h-5 object-contain invert"
+                  className="w-6 h-6 object-contain"
+                  style={{ filter: "brightness(0) invert(1)" }}
                 />
+                <div className="absolute bottom-full mb-2 hidden group-hover/icon:block pointer-events-none bg-black text-white text-xs rounded py-1 px-2 whitespace-nowrap z-50">
+                  View Live Demo
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-black"></div>
+                </div>
               </div>
             )}
           </div>
         </div>
 
         <div className="mt-5">
-          <h3 className="text-[#00d4ff] font-bold text-[20px] font-mono hover:text-[#915EFF] transition-colors duration-300 flex items-center gap-2">
+          <h3 className="text-white font-bold text-[20px] font-mono hover:text-[#915EFF] transition-colors duration-300 flex items-center gap-2">
             <span className="text-[#915EFF]">&gt;</span> {name}
           </h3>
-          <p className="mt-2 text-gray-300 text-[14px] leading-relaxed font-mono opacity-80">
+          <p className="mt-2 text-gray-300 text-[14px] leading-relaxed font-mono">
             {description}
           </p>
         </div>
@@ -93,19 +103,7 @@ const ProjectCard = ({
           {tags.map((tag) => (
             <p
               key={`${name}-${tag.name}`}
-              className={`text-[12px] font-mono px-2 py-1 rounded-md bg-gradient-to-r ${
-                tag.color
-              } bg-opacity-20 border ${
-                tag.color.includes("blue")
-                  ? "border-blue-500"
-                  : tag.color.includes("green")
-                  ? "border-green-500"
-                  : tag.color.includes("pink")
-                  ? "border-pink-500"
-                  : "border-yellow-500"
-              } border-opacity-50 transition-all hover:border-opacity-100 hover:shadow-lg hover:shadow-${
-                tag.color.split("-")[1]
-              }-500/20`}
+              className="text-[13px] font-mono px-3 py-1.5 rounded-md bg-slate-800 text-gray-200 border border-slate-600 transition-all hover:border-[#915EFF] hover:bg-slate-700"
             >
               <span className="text-[#915EFF]">$</span> {tag.name}
             </p>
@@ -151,9 +149,7 @@ const Works = () => {
           <span className="text-[#915EFF]">{"/"}</span>
           <span className="text-[#00d4ff]">{">"}</span>
         </h2>
-        <p className="text-[#00d4ff] font-mono text-xs mt-2 opacity-70">
-          {/* Interactive project showcase with live previews */}
-        </p>
+        <p className="text-[#00d4ff] font-mono text-xs mt-2 opacity-70"></p>
       </motion.div>
 
       <div className="w-full flex">

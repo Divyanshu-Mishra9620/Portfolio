@@ -101,13 +101,22 @@ const GithubStats = () => {
             0
           );
 
-          const recent = reposData.slice(0, 6).map((repo) => ({
+          const filteredRepos = reposData.filter((repo) => {
+            const homepage = repo?.homepage;
+            return !homepage || (homepage && !homepage.startsWith("file://"));
+          });
+
+          const recent = filteredRepos.slice(0, 6).map((repo) => ({
             name: repo?.name || "Unnamed Repository",
             description: repo?.description || "No description available",
             stars: repo?.stargazers_count || 0,
             forks: repo?.forks_count || 0,
             language: repo?.language || "Unknown",
             url: repo?.html_url || "#",
+            homepage:
+              repo?.homepage && !repo.homepage.startsWith("file://")
+                ? repo.homepage
+                : null,
             updated: repo?.updated_at
               ? new Date(repo.updated_at).toLocaleDateString()
               : "N/A",
@@ -288,25 +297,23 @@ const GithubStats = () => {
                     variants={fadeIn("up", "spring", index * 0.1, 0.75)}
                     className="relative group"
                   >
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-[#915EFF] to-[#00d4ff] rounded-lg blur opacity-0 group-hover:opacity-75 transition duration-500 -z-10" />
-
-                    <div className="relative bg-slate-900 bg-opacity-80 border border-[#915EFF] border-opacity-30 group-hover:border-opacity-100 p-6 rounded-lg transition-all duration-300 backdrop-blur-sm">
+                    <div className="relative bg-slate-900 bg-opacity-80 border border-slate-700 group-hover:border-[#915EFF] p-6 rounded-lg transition-all duration-300 backdrop-blur-sm">
                       <div className="flex items-start justify-between mb-4">
                         <span className="text-5xl">{stat.icon}</span>
-                        <span className="text-[#00d4ff] font-mono text-xs opacity-60">
+                        <span className="text-gray-500 font-mono text-xs">
                           {String(index + 1).padStart(2, "0")}
                         </span>
                       </div>
-                      <h3 className="font-bold text-5xl font-mono mb-2 text-[#00d4ff]">
+                      <h3 className="font-bold text-5xl font-mono mb-2 text-white">
                         {stat.value.toLocaleString()}
                       </h3>
                       <div className="flex items-center gap-2 mb-3">
-                        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                        <p className="text-white font-mono text-sm">
+                        <div className="w-2 h-2 rounded-full bg-green-500" />
+                        <p className="text-gray-400 font-mono text-sm">
                           {stat.label}
                         </p>
                       </div>
-                      <div className="w-full h-px bg-gradient-to-r from-[#915EFF] to-transparent opacity-30" />
+                      <div className="w-full h-px bg-slate-700 opacity-50" />
                     </div>
                   </motion.div>
                 ))}
@@ -353,30 +360,28 @@ const GithubStats = () => {
                       variants={fadeIn("up", "spring", index * 0.1, 0.75)}
                       className="relative group"
                     >
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-[#915EFF] to-[#00d4ff] rounded blur opacity-0 group-hover:opacity-75 transition duration-500 -z-10" />
-                      <div className="relative bg-slate-900 bg-opacity-80 border border-[#00d4ff] border-opacity-30 group-hover:border-opacity-100 p-5 rounded transition-all duration-300 backdrop-blur-sm cursor-pointer">
+                      <div className="relative bg-slate-900 bg-opacity-80 border border-slate-700 group-hover:border-[#915EFF] p-5 rounded transition-all duration-300 backdrop-blur-sm cursor-pointer">
                         <div className="flex items-start justify-between mb-3">
-                          <h4 className="text-[#00d4ff] font-bold text-lg font-mono group-hover:text-[#915EFF] transition-colors">
-                            <span className="opacity-60">file://</span>{" "}
+                          <h4 className="text-white font-bold text-lg font-mono group-hover:text-[#915EFF] transition-colors">
                             {repo.name}
                           </h4>
                           <div className="flex gap-2 font-mono text-xs">
                             {repo.stars > 0 && (
-                              <span className="px-2 py-1 bg-yellow-500 bg-opacity-20 border border-yellow-500 border-opacity-50 rounded text-yellow-400">
+                              <span className="px-2 py-1 bg-yellow-500 bg-opacity-10 border border-yellow-600 border-opacity-30 rounded text-yellow-400">
                                 ⭐ {repo.stars}
                               </span>
                             )}
                             {repo.forks > 0 && (
-                              <span className="px-2 py-1 bg-green-500 bg-opacity-20 border border-green-500 border-opacity-50 rounded text-green-400">
+                              <span className="px-2 py-1 bg-green-500 bg-opacity-10 border border-green-600 border-opacity-30 rounded text-green-400">
                                 🔱 {repo.forks}
                               </span>
                             )}
                           </div>
                         </div>
                         <p className="text-gray-300 text-sm mb-3 line-clamp-2 font-mono">
-                          // {repo.description || "No description available"}
+                          {repo.description}
                         </p>
-                        <div className="w-full h-px bg-gradient-to-r from-[#915EFF] to-transparent opacity-20 mb-3" />
+                        <div className="w-full h-px bg-slate-700 opacity-50 mb-3" />
                         <div className="flex items-center justify-between">
                           {repo.language && (
                             <span className="flex items-center gap-2 text-sm font-mono">
@@ -387,12 +392,12 @@ const GithubStats = () => {
                                     languageColors[repo.language] || "#888",
                                 }}
                               />
-                              <span className="text-[#00d4ff]">
+                              <span className="text-gray-400">
                                 {repo.language}
                               </span>
                             </span>
                           )}
-                          <span className="text-gray-400 text-xs font-mono">
+                          <span className="text-gray-500 text-xs font-mono">
                             {repo.updated}
                           </span>
                         </div>

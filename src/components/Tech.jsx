@@ -17,9 +17,7 @@ const Tech = () => {
           <span className="text-[#915EFF]">{"/"}</span>
           <span className="text-[#00d4ff]">{">"}</span>
         </h2>
-        <p className="text-[#00d4ff] font-mono text-xs mt-2 opacity-70">
-          {/* Technologies & tools I work with */}
-        </p>
+        <p className="text-[#00d4ff] font-mono text-xs mt-2 opacity-70"></p>
       </div>
 
       <div

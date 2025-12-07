@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
+import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 import ContactTerminal from "./canvas/ContactTerminal";
@@ -131,6 +132,107 @@ const Contact = () => {
 
   return (
     <div className="w-full">
+      <motion.div
+        variants={slideIn("left", "tween", 0.2, 1)}
+        initial="show"
+        animate="show"
+        className="w-full mb-10 bg-slate-900 bg-opacity-80 border border-slate-700 p-8 rounded-lg backdrop-blur-sm"
+      >
+        <p className={styles.sectionSubText}>Get in touch</p>
+        <h3 className={`${styles.sectionHeadText} mb-8`}>Contact.</h3>
+
+        <form
+          ref={formRef}
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-6"
+        >
+          <label className="flex flex-col">
+            <span className="text-white font-medium mb-2 font-mono">
+              Your Name <span className="text-red-500">*</span>
+            </span>
+            <input
+              type="text"
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              placeholder="What's your name?"
+              className={`bg-slate-800 py-4 px-6 placeholder:text-gray-500 text-white rounded-lg outline-none border ${
+                errors.name
+                  ? "border-red-500"
+                  : "border-slate-700 focus:border-[#915EFF]"
+              } font-medium transition-colors`}
+            />
+            {errors.name && (
+              <span className="text-red-400 text-sm mt-1">{errors.name}</span>
+            )}
+          </label>
+
+          <label className="flex flex-col">
+            <span className="text-white font-medium mb-2 font-mono">
+              Your Email <span className="text-red-500">*</span>
+            </span>
+            <input
+              type="email"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
+              placeholder="What's your email?"
+              className={`bg-slate-800 py-4 px-6 placeholder:text-gray-500 text-white rounded-lg outline-none border ${
+                errors.email
+                  ? "border-red-500"
+                  : "border-slate-700 focus:border-[#915EFF]"
+              } font-medium transition-colors`}
+            />
+            {errors.email && (
+              <span className="text-red-400 text-sm mt-1">{errors.email}</span>
+            )}
+          </label>
+
+          <label className="flex flex-col">
+            <span className="text-white font-medium mb-2 font-mono">
+              Your Message <span className="text-red-500">*</span>
+            </span>
+            <textarea
+              rows={7}
+              name="message"
+              value={form.message}
+              onChange={handleChange}
+              placeholder="What do you want to say?"
+              className={`bg-slate-800 py-4 px-6 placeholder:text-gray-500 text-white rounded-lg outline-none border ${
+                errors.message
+                  ? "border-red-500"
+                  : "border-slate-700 focus:border-[#915EFF]"
+              } font-medium transition-colors resize-none`}
+            />
+            {errors.message && (
+              <span className="text-red-400 text-sm mt-1">
+                {errors.message}
+              </span>
+            )}
+          </label>
+
+          {errors.submit && (
+            <div className="bg-red-500 bg-opacity-10 border border-red-500 rounded-lg p-3 text-red-400 text-sm">
+              {errors.submit}
+            </div>
+          )}
+
+          {success && (
+            <div className="bg-green-500 bg-opacity-10 border border-green-500 rounded-lg p-3 text-green-400 text-sm">
+              ✓ Thank you! I will get back to you as soon as possible.
+            </div>
+          )}
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="bg-[#915EFF] hover:bg-[#7c3aed] disabled:bg-slate-700 disabled:cursor-not-allowed py-3 px-8 rounded-xl outline-none w-full text-white font-bold shadow-md transition-all duration-300"
+          >
+            {loading ? "Sending..." : "Send"}
+          </button>
+        </form>
+      </motion.div>
+
       <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 w-full">
         <motion.div
           variants={slideIn("right", "tween", 0.2, 1)}

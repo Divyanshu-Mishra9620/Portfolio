@@ -38,6 +38,8 @@ import ecommerce from "./ecommerce.png";
 import healthAssistant from "./healthAssistant.png";
 import money from "./money.png";
 import chatty from "./chatty.png";
+import uber from "./uber.png";
+import farmer from "./farmer.png";
 
 export {
   arrow,
@@ -77,4 +79,6 @@ export {
   nextjs,
   ecommerce,
   healthAssistant,
+  uber,
+  farmer,
 };
