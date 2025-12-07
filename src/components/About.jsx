@@ -52,7 +52,7 @@ const About = () => {
         className="mt-4 text-gray-300 text-[17px] max-w-3xl leading-[30px] font-mono"
       >
         I’m a Full-Stack & AI Engineer who loves building systems that are fast,
-        scalable, and intelligent. I work across the entire stack—Next.js,
+        scalable, and intelligent. I work across the entire stack :- Next.js,
         Node.js, Django, PostgreSQL, WebSockets, and modern AI tooling like
         LangChain, vector databases, and LLM APIs. I enjoy solving real
         engineering problems: real-time communication, search & indexing, RAG
