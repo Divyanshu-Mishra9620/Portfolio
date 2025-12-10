@@ -166,37 +166,37 @@ const GithubStats = () => {
       label: "Public Repos",
       value: stats.totalRepos,
       icon: "📦",
-      color: "from-blue-500 to-cyan-500",
+      color: "from-gray-600 to-gray-800",
     },
     {
       label: "Total Stars",
       value: stats.totalStars,
       icon: "⭐",
-      color: "from-yellow-500 to-orange-500",
+      color: "from-gray-500 to-gray-700",
     },
     {
       label: "Total Forks",
       value: stats.totalForks,
       icon: "🔱",
-      color: "from-green-500 to-emerald-500",
+      color: "from-gray-600 to-gray-800",
     },
     {
       label: "Followers",
       value: stats.followers,
       icon: "👥",
-      color: "from-purple-500 to-pink-500",
+      color: "from-gray-500 to-gray-700",
     },
     {
       label: "Following",
       value: stats.following,
       icon: "👤",
-      color: "from-indigo-500 to-purple-500",
+      color: "from-gray-600 to-gray-800",
     },
     {
       label: "Public Gists",
       value: stats.publicGists,
       icon: "📝",
-      color: "from-pink-500 to-rose-500",
+      color: "from-gray-500 to-gray-700",
     },
   ];
 
@@ -213,7 +213,7 @@ const GithubStats = () => {
 
   return (
     <div className="w-screen relative left-[calc(-50vw+50%)] px-0 md:px-0 bg-transparent min-h-[600px] md:min-h-screen">
-      <div className="w-full bg-gradient-to-b from-slate-900 via-slate-950 to-black relative overflow-hidden h-full">
+      <div className="w-full bg-black relative overflow-hidden h-full">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0"
@@ -227,26 +227,26 @@ const GithubStats = () => {
           />
         </div>
 
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600 rounded-full blur-3xl opacity-10 pointer-events-none" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-600 rounded-full blur-3xl opacity-10 pointer-events-none" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-gray-600 rounded-full blur-3xl opacity-10 pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gray-400 rounded-full blur-3xl opacity-10 pointer-events-none" />
 
         <div
           className={`relative z-10 ${styles.padding} min-h-screen md:min-h-auto py-12 md:py-16`}
         >
           <motion.div variants={textVariant()} className="mb-2">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-1 h-8 bg-gradient-to-b from-[#915EFF] to-[#00d4ff]" />
-              <p className="text-[#00d4ff] font-mono text-sm uppercase tracking-widest">
+              <div className="w-1 h-8 bg-gradient-to-b from-gray-400 to-gray-600" />
+              <p className="text-gray-400 font-mono text-sm uppercase tracking-widest">
                 &gt; system.analyze()
               </p>
             </div>
             <h2 className={`${styles.sectionHeadText} font-black text-white`}>
-              <span className="text-[#00d4ff]">&lt;</span>
+              <span className="text-gray-400">&lt;</span>
               GitHub
-              <span className="text-[#915EFF]">/</span>
-              <span className="text-[#00d4ff]">&gt;</span>
+              <span className="text-white">/</span>
+              <span className="text-gray-400">&gt;</span>
             </h2>
-            <p className="text-[#00d4ff] font-mono text-xs mt-2 opacity-70">
+            <p className="text-gray-400 font-mono text-xs mt-2 opacity-70">
               // Real-time GitHub metrics & activity logs
             </p>
           </motion.div>
@@ -254,7 +254,7 @@ const GithubStats = () => {
           {loading ? (
             <div className="mt-10 flex justify-center items-center">
               <div className="flex flex-col items-center gap-4">
-                <div className="w-16 h-16 border-4 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
+                <div className="w-16 h-16 border-4 border-gray-500 border-t-transparent rounded-full animate-spin"></div>
                 <p className="text-secondary text-lg">
                   Loading GitHub stats...
                 </p>
@@ -281,7 +281,7 @@ const GithubStats = () => {
                         "_blank"
                       )
                     }
-                    className="px-6 py-2 bg-[#00d4ff] hover:bg-[#00a8cc] text-slate-900 rounded-lg transition-all duration-300 text-sm font-medium"
+                    className="px-6 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-all duration-300 text-sm font-medium"
                   >
                     Visit GitHub
                   </button>
@@ -297,7 +297,7 @@ const GithubStats = () => {
                     variants={fadeIn("up", "spring", index * 0.1, 0.75)}
                     className="relative group"
                   >
-                    <div className="relative bg-slate-900 bg-opacity-80 border border-slate-700 group-hover:border-[#915EFF] p-6 rounded-lg transition-all duration-300 backdrop-blur-sm">
+                    <div className="relative bg-black bg-opacity-80 border border-white border-opacity-30 group-hover:border-white p-6 rounded-lg transition-all duration-300 backdrop-blur-sm">
                       <div className="flex items-start justify-between mb-4">
                         <span className="text-5xl">{stat.icon}</span>
                         <span className="text-gray-500 font-mono text-xs">
@@ -313,7 +313,7 @@ const GithubStats = () => {
                           {stat.label}
                         </p>
                       </div>
-                      <div className="w-full h-px bg-slate-700 opacity-50" />
+                      <div className="w-full h-px bg-white opacity-20" />
                     </div>
                   </motion.div>
                 ))}
@@ -329,12 +329,12 @@ const GithubStats = () => {
                   rel="noopener noreferrer"
                   className="relative group px-8 py-4 text-white font-bold text-lg font-mono"
                 >
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-[#915EFF] to-[#00d4ff] rounded blur opacity-0 group-hover:opacity-100 transition duration-500" />
-                  <div className="relative bg-slate-900 border border-[#915EFF] border-opacity-50 group-hover:border-opacity-100 px-8 py-4 rounded backdrop-blur-sm flex items-center gap-3">
-                    <span className="text-[#00d4ff]">&gt;</span>
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-gray-400 to-gray-600 rounded blur opacity-0 group-hover:opacity-100 transition duration-500" />
+                  <div className="relative bg-black border border-white border-opacity-50 group-hover:border-opacity-100 px-8 py-4 rounded backdrop-blur-sm flex items-center gap-3">
+                    <span className="text-gray-400">&gt;</span>
                     <img src={github} alt="GitHub" className="w-6 h-6 invert" />
                     <span>View Full Profile</span>
-                    <span className="text-[#00d4ff]">_</span>
+                    <span className="text-gray-400">_</span>
                   </div>
                 </a>
               </motion.div>
@@ -344,9 +344,9 @@ const GithubStats = () => {
                 className="mt-16"
               >
                 <div className="flex items-center gap-3 mb-8">
-                  <div className="w-1 h-8 bg-gradient-to-b from-[#915EFF] to-[#00d4ff]" />
+                  <div className="w-1 h-8 bg-gradient-to-b from-gray-400 to-gray-600" />
                   <h3 className="text-white font-bold text-2xl font-mono">
-                    <span className="text-[#00d4ff]">&gt;</span> Recent
+                    <span className="text-gray-400">&gt;</span> Recent
                     Repositories
                   </h3>
                 </div>
@@ -360,9 +360,9 @@ const GithubStats = () => {
                       variants={fadeIn("up", "spring", index * 0.1, 0.75)}
                       className="relative group"
                     >
-                      <div className="relative bg-slate-900 bg-opacity-80 border border-slate-700 group-hover:border-[#915EFF] p-5 rounded transition-all duration-300 backdrop-blur-sm cursor-pointer">
+                      <div className="relative bg-black bg-opacity-80 border border-white border-opacity-30 group-hover:border-white p-5 rounded transition-all duration-300 backdrop-blur-sm cursor-pointer">
                         <div className="flex items-start justify-between mb-3">
-                          <h4 className="text-white font-bold text-lg font-mono group-hover:text-[#915EFF] transition-colors">
+                          <h4 className="text-white font-bold text-lg font-mono group-hover:text-gray-300 transition-colors">
                             {repo.name}
                           </h4>
                           <div className="flex gap-2 font-mono text-xs">
@@ -381,7 +381,7 @@ const GithubStats = () => {
                         <p className="text-gray-300 text-sm mb-3 line-clamp-2 font-mono">
                           {repo.description}
                         </p>
-                        <div className="w-full h-px bg-slate-700 opacity-50 mb-3" />
+                        <div className="w-full h-px bg-white opacity-20 mb-3" />
                         <div className="flex items-center justify-between">
                           {repo.language && (
                             <span className="flex items-center gap-2 text-sm font-mono">
@@ -412,18 +412,18 @@ const GithubStats = () => {
                 className="mt-16 flex flex-col gap-6"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-1 h-8 bg-gradient-to-b from-[#915EFF] to-[#00d4ff]" />
+                  <div className="w-1 h-8 bg-gradient-to-b from-gray-400 to-gray-600" />
                   <h3 className="text-white font-bold text-2xl font-mono">
-                    <span className="text-[#00d4ff]">&gt;</span> Contribution
+                    <span className="text-gray-400">&gt;</span> Contribution
                     Activity
                   </h3>
                 </div>
 
                 <div className="relative group">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-[#915EFF] to-[#00d4ff] rounded blur opacity-0 group-hover:opacity-50 transition duration-500 -z-10" />
-                  <div className="relative bg-slate-900 bg-opacity-80 border border-[#00d4ff] border-opacity-30 group-hover:border-opacity-100 p-6 rounded overflow-hidden backdrop-blur-sm transition-all duration-300">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-gray-400 to-gray-600 rounded blur opacity-0 group-hover:opacity-50 transition duration-500 -z-10" />
+                  <div className="relative bg-black bg-opacity-80 border border-gray-400 border-opacity-30 group-hover:border-opacity-100 p-6 rounded overflow-hidden backdrop-blur-sm transition-all duration-300">
                     <img
-                      src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=radical&hide_border=true&background=0D1117&stroke=915EFF&ring=915EFF&fire=FF6EC7&currStreakLabel=FFFFFF`}
+                      src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=dark&hide_border=true&background=0D1117&stroke=FFFFFF&ring=FFFFFF&fire=CCCCCC&currStreakLabel=FFFFFF`}
                       alt="GitHub Streak"
                       className="w-full h-auto"
                       loading="lazy"
@@ -433,10 +433,10 @@ const GithubStats = () => {
                 </div>
 
                 <div className="relative group">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-[#915EFF] to-[#00d4ff] rounded blur opacity-0 group-hover:opacity-50 transition duration-500 -z-10" />
-                  <div className="relative bg-slate-900 bg-opacity-80 border border-[#00d4ff] border-opacity-30 group-hover:border-opacity-100 p-6 rounded overflow-hidden backdrop-blur-sm transition-all duration-300">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-gray-400 to-gray-600 rounded blur opacity-0 group-hover:opacity-50 transition duration-500 -z-10" />
+                  <div className="relative bg-black bg-opacity-80 border border-gray-400 border-opacity-30 group-hover:border-opacity-100 p-6 rounded overflow-hidden backdrop-blur-sm transition-all duration-300">
                     <img
-                      src={`https://github-readme-activity-graph.vercel.app/graph?username=${username}&theme=react-dark&hide_border=true&bg_color=0D1117&color=915EFF&line=915EFF&point=FF6EC7&area=true&area_color=915EFF`}
+                      src={`https://github-readme-activity-graph.vercel.app/graph?username=${username}&theme=react-dark&hide_border=true&bg_color=0D1117&color=FFFFFF&line=FFFFFF&point=CCCCCC&area=true&area_color=666666`}
                       alt="GitHub Activity Graph"
                       className="w-full h-auto"
                       loading="lazy"
@@ -446,10 +446,10 @@ const GithubStats = () => {
                 </div>
 
                 <div className="relative group">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-[#915EFF] to-[#00d4ff] rounded blur opacity-0 group-hover:opacity-50 transition duration-500 -z-10" />
-                  <div className="relative bg-slate-900 bg-opacity-80 border border-[#00d4ff] border-opacity-30 group-hover:border-opacity-100 p-6 rounded overflow-hidden backdrop-blur-sm transition-all duration-300">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-gray-400 to-gray-600 rounded blur opacity-0 group-hover:opacity-50 transition duration-500 -z-10" />
+                  <div className="relative bg-black bg-opacity-80 border border-gray-400 border-opacity-30 group-hover:border-opacity-100 p-6 rounded overflow-hidden backdrop-blur-sm transition-all duration-300">
                     <img
-                      src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=radical&hide_border=true&bg_color=0D1117&title_color=915EFF&text_color=FFFFFF&icon_color=915EFF`}
+                      src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=dark&hide_border=true&bg_color=0D1117&title_color=FFFFFF&text_color=FFFFFF&icon_color=CCCCCC`}
                       alt="Most Used Languages"
                       className="w-full h-auto"
                       loading="lazy"

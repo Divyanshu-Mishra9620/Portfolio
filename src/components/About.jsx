@@ -11,8 +11,8 @@ const ServiceCard = ({ index, title, icon }) => (
     variants={fadeIn("right", "spring", index * 0.5, 0.75)}
     className="xs:w-[250px] w-full relative group"
   >
-    <div className="relative bg-gradient-to-br from-slate-900 to-slate-950 rounded-lg p-6 min-h-[280px] flex justify-center items-center flex-col transition-all duration-300 hover:shadow-lg hover:shadow-purple-900/30 border border-slate-700 group-hover:border-[#915EFF] backdrop-blur-sm">
-      <div className="mb-4 p-4 rounded-lg bg-slate-800 border border-slate-700 transition-transform duration-300 group-hover:scale-110">
+    <div className="relative bg-black rounded-lg p-6 min-h-[280px] flex justify-center items-center flex-col transition-all duration-300 hover:shadow-lg hover:shadow-white/20 border border-white border-opacity-30 group-hover:border-white backdrop-blur-sm">
+      <div className="mb-4 p-4 rounded-lg bg-black border border-white border-opacity-30 transition-transform duration-300 group-hover:scale-110">
         <img
           src={icon}
           alt={`${title} icon`}
@@ -20,11 +20,11 @@ const ServiceCard = ({ index, title, icon }) => (
         />
       </div>
 
-      <h3 className="text-white text-[18px] font-bold text-center font-mono group-hover:text-[#915EFF] transition-colors duration-300">
-        <span className="text-[#915EFF]">{">"}</span> {title}
+      <h3 className="text-white text-[18px] font-bold text-center font-mono group-hover:text-gray-300 transition-colors duration-300">
+        <span className="text-white">{">"}</span> {title}
       </h3>
 
-      <div className="mt-3 w-full h-px bg-slate-700 opacity-50" />
+      <div className="mt-3 w-full h-px bg-white opacity-20" />
     </div>
   </motion.div>
 );
@@ -34,17 +34,17 @@ const About = () => {
     <>
       <motion.div variants={textVariant()}>
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-1 h-8 bg-gradient-to-b from-[#915EFF] to-[#00d4ff]" />
-          <p className="text-[#00d4ff] font-mono text-sm uppercase tracking-widest">
+          <div className="w-1 h-8 bg-gradient-to-b from-gray-400 to-gray-600" />
+          <p className="text-gray-400 font-mono text-sm uppercase tracking-widest">
             &gt; developer.profile()
           </p>
         </div>
         <h2 className={`${styles.sectionHeadText} font-black text-white`}>
-          <span className="text-[#00d4ff]">{"<"}</span> About{" "}
-          <span className="text-[#915EFF]">{"/"}</span>
-          <span className="text-[#00d4ff]">{">"}</span>
+          <span className="text-gray-400">{"<"}</span> About{" "}
+          <span className="text-white">{"/"}</span>
+          <span className="text-gray-400">{">"}</span>
         </h2>
-        <p className="text-[#00d4ff] font-mono text-xs mt-2 opacity-70"></p>
+        <p className="text-gray-400 font-mono text-xs mt-2 opacity-70"></p>
       </motion.div>
 
       <motion.p

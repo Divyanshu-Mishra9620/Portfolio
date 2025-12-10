@@ -7,7 +7,7 @@
 html,
 body,
 #root {
-  background-color: #050816;
+  background-color: #000000;
   min-height: 100vh;
 }
 
@@ -26,21 +26,21 @@ body,
 }
 
 ::-webkit-scrollbar-track {
-  background: #050816;
+  background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #804dee 0%, #915eff 100%);
+  background: linear-gradient(180deg, #404040 0%, #262626 100%);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #915eff 0%, #804dee 100%);
+  background: linear-gradient(180deg, #525252 0%, #404040 100%);
 }
 
 /* Focus visible for accessibility */
 *:focus-visible {
-  outline: 2px solid #915eff;
+  outline: 2px solid #ffffff;
   outline-offset: 2px;
 }
 
@@ -65,19 +65,19 @@ body,
 }
 
 .violet-gradient {
-  background: #804dee;
-  background: linear-gradient(-90deg, #804dee 0%, rgba(60, 51, 80, 0) 100%);
+  background: #262626;
+  background: linear-gradient(-90deg, #262626 0%, rgba(38, 38, 38, 0) 100%);
   background: -webkit-linear-gradient(
     -90deg,
-    #804dee 0%,
-    rgba(60, 51, 80, 0) 100%
+    #262626 0%,
+    rgba(38, 38, 38, 0) 100%
   );
 }
 
 .green-pink-gradient {
-  background: "#00cea8";
-  background: linear-gradient(90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
-  background: -webkit-linear-gradient(-90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
+  background: "#404040";
+  background: linear-gradient(90.13deg, #262626 1.9%, #525252 97.5%);
+  background: -webkit-linear-gradient(-90.13deg, #262626 1.9%, #525252 97.5%);
 }
 
 .orange-text-gradient {
@@ -113,19 +113,19 @@ body,
 }
 
 .blue-text-gradient {
-  /* background: -webkit-linear-gradient(#eee, #333); */
-  background: #56ccf2; /* fallback for old browsers */
+  background: #ffffff; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to top,
-    #2f80ed,
-    #56ccf2
+    #d1d5db,
+    #ffffff
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to top,
-    #2f80ed,
-    #56ccf2
+    #d1d5db,
+    #ffffff
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -157,7 +157,7 @@ body,
 }
 
 .animate-gradient {
-  background: linear-gradient(90deg, #915eff, #ec008c, #915eff);
+  background: linear-gradient(90deg, #ffffff, #525252, #ffffff);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -197,13 +197,13 @@ button:disabled {
 
 /* Selection color */
 ::selection {
-  background-color: #915eff;
-  color: white;
+  background-color: #ffffff;
+  color: #000000;
 }
 
 ::-moz-selection {
-  background-color: #915eff;
-  color: white;
+  background-color: #ffffff;
+  color: #000000;
 }
 
 /* canvas- styles */

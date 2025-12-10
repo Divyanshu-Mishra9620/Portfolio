@@ -91,17 +91,17 @@ const ProjectsTerminal = ({ isMobile }) => {
 
   return (
     <div
-      className={`w-full bg-gradient-to-b from-slate-900 to-slate-950 rounded-lg border border-[#915EFF] border-opacity-50 overflow-hidden flex flex-col ${
+      className={`w-full bg-black rounded-lg border border-white border-opacity-50 overflow-hidden flex flex-col ${
         isMobile ? "h-[500px]" : "h-[600px]"
       }`}
     >
-      <div className="bg-slate-950 px-3 md:px-4 py-2 md:py-3 flex items-center gap-2 border-b border-[#915EFF] border-opacity-30">
+      <div className="bg-black px-3 md:px-4 py-2 md:py-3 flex items-center gap-2 border-b border-white border-opacity-30">
         <div className="flex gap-2">
           <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
           <div className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
           <div className="w-2.5 h-2.5 rounded-full bg-green-500" />
         </div>
-        <span className="text-[#00d4ff] font-mono text-xs md:text-sm ml-2">
+        <span className="text-white font-mono text-xs md:text-sm ml-2">
           projects@portfolio — /showcase
         </span>
       </div>
@@ -111,21 +111,21 @@ const ProjectsTerminal = ({ isMobile }) => {
         className="flex-1 overflow-y-auto p-3 md:p-4 font-mono text-xs md:text-sm space-y-0"
       >
         {displayedLines.map((line, index) => {
-          let lineColor = "text-[#00d4ff]";
+          let lineColor = "text-white";
           let lineClass = "";
 
           if (line.includes("Description:")) {
-            lineColor = "text-[#a8e6cf]";
+            lineColor = "text-gray-300";
             lineClass = "font-semibold";
           } else if (line.includes("Tech:")) {
-            lineColor = "text-[#ffd3b6]";
+            lineColor = "text-gray-400";
           } else if (line.includes("Source:") || line.includes("Live:")) {
-            lineColor = "text-[#ff8b94]";
+            lineColor = "text-gray-500";
           } else if (line.match(/^\[\d+\]/)) {
-            lineColor = "text-[#915EFF]";
+            lineColor = "text-white";
             lineClass = "font-bold text-sm md:text-base";
           } else if (line.includes("✓")) {
-            lineColor = "text-[#00ff00]";
+            lineColor = "text-gray-200";
             lineClass = "font-bold";
           }
 
@@ -136,7 +136,7 @@ const ProjectsTerminal = ({ isMobile }) => {
             >
               {line}
               {index === displayedLines.length - 1 && !isComplete && (
-                <span className="ml-1 inline-block w-2 h-4 bg-[#00d4ff] animate-pulse" />
+                <span className="ml-1 inline-block w-2 h-4 bg-white animate-pulse" />
               )}
             </div>
           );
@@ -144,7 +144,7 @@ const ProjectsTerminal = ({ isMobile }) => {
       </div>
 
       {isComplete && (
-        <div className="bg-slate-950 px-3 md:px-4 py-2 border-t border-[#915EFF] border-opacity-30 text-[#00d4ff] font-mono text-xs md:text-sm flex items-center gap-2">
+        <div className="bg-black px-3 md:px-4 py-2 border-t border-white border-opacity-30 text-white font-mono text-xs md:text-sm flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
           <span>Ready</span>
         </div>

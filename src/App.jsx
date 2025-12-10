@@ -14,6 +14,7 @@ import {
   BackToTop,
   GithubStats,
 } from "./components";
+import ScratchesOverlay from "./components/ScratchesOverlay";
 
 function AppContent() {
   useEffect(() => {
@@ -37,6 +38,7 @@ function AppContent() {
 
   return (
     <div className="relative z-0 bg-primary">
+      <ScratchesOverlay />
       <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
         <Navbar />
         <Hero />

@@ -207,17 +207,17 @@ const ContactTerminal = ({ onSubmit, isMobile }) => {
 
   return (
     <div
-      className={`w-full bg-gradient-to-b from-slate-900 to-slate-950 rounded-lg border border-[#915EFF] border-opacity-50 overflow-hidden flex flex-col ${
+      className={`w-full bg-black rounded-lg border border-white border-opacity-50 overflow-hidden flex flex-col ${
         isMobile ? "h-[400px]" : "h-[500px]"
       }`}
     >
-      <div className="bg-slate-950 px-3 md:px-4 py-2 md:py-3 flex items-center gap-2 border-b border-[#915EFF] border-opacity-30">
+      <div className="bg-black px-3 md:px-4 py-2 md:py-3 flex items-center gap-2 border-b border-white border-opacity-30">
         <div className="flex gap-2">
           <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
           <div className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
           <div className="w-2.5 h-2.5 rounded-full bg-green-500" />
         </div>
-        <span className="text-[#00d4ff] font-mono text-xs md:text-sm ml-2 truncate">
+        <span className="text-white font-mono text-xs md:text-sm ml-2 truncate">
           contact@DivyanshuMishra:~/portfolio
         </span>
       </div>
@@ -227,7 +227,7 @@ const ContactTerminal = ({ onSubmit, isMobile }) => {
         className="flex-1 overflow-y-auto p-3 md:p-4 font-mono text-xs md:text-sm space-y-1"
       >
         {output.map((line, index) => {
-          let lineColor = "text-[#00d4ff]";
+          let lineColor = "text-white";
 
           if (line.startsWith("$")) {
             lineColor = "text-[#a8e6cf]";
@@ -242,7 +242,7 @@ const ContactTerminal = ({ onSubmit, isMobile }) => {
             line.includes("Email:") ||
             line.includes("Message:")
           ) {
-            lineColor = "text-[#915EFF]";
+            lineColor = "text-gray-300";
           }
 
           return (
@@ -256,8 +256,8 @@ const ContactTerminal = ({ onSubmit, isMobile }) => {
         })}
       </div>
 
-      <div className="bg-slate-950 px-3 md:px-4 py-3 border-t border-[#915EFF] border-opacity-30 flex items-center gap-2">
-        <span className="text-[#00d4ff] font-mono text-xs md:text-sm flex-shrink-0">
+      <div className="bg-black px-3 md:px-4 py-3 border-t border-white border-opacity-30 flex items-center gap-2">
+        <span className="text-white font-mono text-xs md:text-sm flex-shrink-0">
           $
         </span>
         <input
@@ -271,7 +271,7 @@ const ContactTerminal = ({ onSubmit, isMobile }) => {
               : "Type command or 'help'..."
           }
           enterKeyHint="send"
-          className="flex-1 bg-transparent text-[#00d4ff] font-mono text-xs md:text-sm outline-none placeholder-[#00d4ff] placeholder-opacity-50"
+          className="flex-1 bg-transparent text-white font-mono text-xs md:text-sm outline-none placeholder-white placeholder-opacity-50"
           disabled={isProcessing}
           autoFocus
         />

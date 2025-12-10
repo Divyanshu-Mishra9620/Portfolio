@@ -39,7 +39,7 @@ const PageLoader = () => {
                   ease: "easeInOut",
                 },
               }}
-              className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500"
+              className="w-16 h-16 rounded-full bg-gradient-to-r from-gray-500 to-gray-700"
             />
 
             <motion.p
@@ -56,7 +56,7 @@ const PageLoader = () => {
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}
                 transition={{ duration: 1.8, ease: "easeInOut" }}
-                className="h-full bg-gradient-to-r from-purple-500 to-pink-500"
+                className="h-full bg-gradient-to-r from-gray-500 to-gray-700"
               />
             </div>
           </div>

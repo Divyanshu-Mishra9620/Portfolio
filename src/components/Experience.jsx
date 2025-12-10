@@ -16,14 +16,14 @@ const ExperienceCard = ({ experience }) => {
   return (
     <VerticalTimelineElement
       contentStyle={{
-        background: "#0f172a",
+        background: "#000000",
         color: "#fff",
-        boxShadow: "0 4px 20px rgba(0, 0, 0, 0.5)",
-        border: "1px solid rgba(148, 163, 184, 0.2)",
+        boxShadow: "0 4px 20px rgba(255, 255, 255, 0.1)",
+        border: "1px solid rgba(255, 255, 255, 0.3)",
         borderRadius: "0.5rem",
       }}
       contentArrowStyle={{
-        borderRight: "7px solid #0f172a",
+        borderRight: "7px solid #000000",
       }}
       date={
         <span className="font-mono text-white font-bold">
@@ -32,8 +32,8 @@ const ExperienceCard = ({ experience }) => {
       }
       iconStyle={{
         background: experience.iconBg,
-        boxShadow: "0 0 10px rgba(145, 94, 255, 0.5)",
-        border: "2px solid rgba(145, 94, 255, 0.3)",
+        boxShadow: "0 0 10px rgba(255, 255, 255, 0.3)",
+        border: "2px solid rgba(255, 255, 255, 0.3)",
       }}
       icon={
         <div className="flex justify-center items-center w-full h-full">
@@ -47,7 +47,7 @@ const ExperienceCard = ({ experience }) => {
     >
       <div>
         <h3 className="text-white text-[24px] font-bold font-mono">
-          <span className="text-[#915EFF]">{"$"}</span> {experience.title}
+          <span className="text-white">{"$"}</span> {experience.title}
         </h3>
         <p
           className="text-gray-300 text-[16px] font-semibold font-mono"
@@ -63,7 +63,7 @@ const ExperienceCard = ({ experience }) => {
             key={`experience-point-${index}`}
             className="text-gray-300 text-[14px] pl-1 tracking-wider leading-relaxed font-mono"
           >
-            <span className="text-[#915EFF] mr-2">#</span> {point}
+            <span className="text-white mr-2">#</span> {point}
           </li>
         ))}
       </ul>
@@ -76,19 +76,19 @@ const Experience = () => {
     <>
       <motion.div variants={textVariant()}>
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-1 h-8 bg-gradient-to-b from-[#915EFF] to-[#00d4ff]" />
-          <p className="text-[#00d4ff] font-mono text-sm uppercase tracking-widest text-center">
+          <div className="w-1 h-8 bg-gradient-to-b from-gray-400 to-gray-600" />
+          <p className="text-gray-400 font-mono text-sm uppercase tracking-widest text-center">
             &gt; career.timeline()
           </p>
         </div>
         <h2
           className={`${styles.sectionHeadText} font-black text-white text-center`}
         >
-          <span className="text-[#00d4ff]">{"<"}</span> Experience{" "}
-          <span className="text-[#915EFF]">{"/"}</span>
-          <span className="text-[#00d4ff]">{">"}</span>
+          <span className="text-gray-400">{"<"}</span> Experience{" "}
+          <span className="text-white">{"/"}</span>
+          <span className="text-gray-400">{">"}</span>
         </h2>
-        <p className="text-[#00d4ff] font-mono text-xs mt-2 opacity-70 text-center"></p>
+        <p className="text-gray-400 font-mono text-xs mt-2 opacity-70 text-center"></p>
       </motion.div>
 
       <div className="mt-20 flex flex-col">

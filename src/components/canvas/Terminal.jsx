@@ -63,8 +63,8 @@ const Terminal = () => {
       transition={{ duration: 0.8, delay: 0.3 }}
       className="relative w-full h-full backdrop-blur-md pointer-events-auto"
     >
-      <div className="bg-black bg-opacity-70 h-full w-full rounded-lg border-2 border-[#915EFF] border-opacity-50 overflow-hidden shadow-2xl shadow-purple-500/20 flex flex-col">
-        <div className="bg-gradient-to-r from-[#915EFF] to-[#00d4ff] bg-opacity-20 px-3 xs:px-4 py-2 xs:py-3 flex items-center gap-2 xs:gap-3 border-b border-[#915EFF] border-opacity-30 flex-shrink-0">
+      <div className="bg-black bg-opacity-70 h-full w-full rounded-lg border-2 border-white border-opacity-50 overflow-hidden shadow-2xl flex flex-col">
+        <div className="bg-black bg-opacity-90 px-3 xs:px-4 py-2 xs:py-3 flex items-center gap-2 xs:gap-3 border-b border-white border-opacity-30 flex-shrink-0">
           <div className="flex gap-1 xs:gap-2">
             <div className="w-2 xs:w-3 h-2 xs:h-3 rounded-full bg-red-500 opacity-80" />
             <div className="w-2 xs:w-3 h-2 xs:h-3 rounded-full bg-yellow-500 opacity-80" />
@@ -75,8 +75,8 @@ const Terminal = () => {
           </span>
         </div>
 
-        <div className="p-3 xs:p-4 md:p-6 font-mono text-xs xs:text-sm flex-1 overflow-y-auto scrollbar-thin scrollbar-track-black scrollbar-thumb-[#915EFF]">
-          <div className="text-[#00d4ff] whitespace-pre-wrap break-words leading-relaxed">
+        <div className="p-3 xs:p-4 md:p-6 font-mono text-xs xs:text-sm flex-1 overflow-y-auto scrollbar-thin scrollbar-track-black scrollbar-thumb-white">
+          <div className="text-white whitespace-pre-wrap break-words leading-relaxed">
             {displayedText}
             {isTyping && <span className="animate-pulse">▊</span>}
           </div>
@@ -87,7 +87,7 @@ const Terminal = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="px-3 xs:px-4 md:px-6 py-2 xs:py-3 bg-black bg-opacity-50 border-t border-[#915EFF] border-opacity-30 text-[#00d4ff] text-xs font-mono flex items-center justify-between flex-shrink-0"
+            className="px-3 xs:px-4 md:px-6 py-2 xs:py-3 bg-black bg-opacity-50 border-t border-white border-opacity-30 text-white text-xs font-mono flex items-center justify-between flex-shrink-0"
           >
             <span>Status: Ready</span>
             <span className="flex items-center gap-1 xs:gap-2">

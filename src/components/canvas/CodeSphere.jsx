@@ -101,24 +101,24 @@ const CodeRings = () => {
       <mesh ref={ringRef1} rotation={[Math.PI / 2, 0, 0]}>
         <torusGeometry args={[2.5, 0.02, 16, 100]} />
         <meshStandardMaterial
-          color="#915EFF"
-          emissive="#915EFF"
+          color="#ffffff"
+          emissive="#ffffff"
           emissiveIntensity={0.5}
         />
       </mesh>
       <mesh ref={ringRef2} rotation={[0, Math.PI / 2, 0]}>
         <torusGeometry args={[2.8, 0.02, 16, 100]} />
         <meshStandardMaterial
-          color="#00d4ff"
-          emissive="#00d4ff"
+          color="#d1d5db"
+          emissive="#d1d5db"
           emissiveIntensity={0.5}
         />
       </mesh>
       <mesh ref={ringRef3} rotation={[Math.PI / 4, Math.PI / 4, 0]}>
         <torusGeometry args={[3.1, 0.02, 16, 100]} />
         <meshStandardMaterial
-          color="#ff6ec7"
-          emissive="#ff6ec7"
+          color="#9ca3af"
+          emissive="#9ca3af"
           emissiveIntensity={0.5}
         />
       </mesh>
@@ -167,7 +167,7 @@ const CodeSymbols = ({ isMobile }) => {
             >
               <div
                 style={{
-                  color: index % 2 === 0 ? "#915EFF" : "#00d4ff",
+                  color: index % 2 === 0 ? "#ffffff" : "#d1d5db",
                   fontSize: isMobile ? "20px" : "24px",
                   fontWeight: "bold",
                   fontFamily: "monospace",
@@ -201,13 +201,13 @@ const CodeSphere = ({ isMobile }) => {
       <Float speed={1.5} rotationIntensity={0.5} floatIntensity={0.5}>
         <Sphere ref={meshRef} args={[1.8, 64, 64]} scale={isMobile ? 0.7 : 1}>
           <MeshDistortMaterial
-            color="#915EFF"
+            color="#ffffff"
             attach="material"
             distort={0.4}
             speed={2}
             roughness={0.2}
             metalness={0.8}
-            emissive="#915EFF"
+            emissive="#ffffff"
             emissiveIntensity={0.4}
             wireframe={false}
           />
@@ -221,8 +221,8 @@ const CodeSphere = ({ isMobile }) => {
       <CodeParticles />
 
       <ambientLight intensity={0.4} />
-      <pointLight position={[10, 10, 10]} intensity={1.5} color="#915EFF" />
-      <pointLight position={[-10, -10, -10]} intensity={1} color="#00d4ff" />
+      <pointLight position={[10, 10, 10]} intensity={1.5} color="#ffffff" />
+      <pointLight position={[-10, -10, -10]} intensity={1} color="#d1d5db" />
       <spotLight
         position={[0, 10, 0]}
         angle={0.3}

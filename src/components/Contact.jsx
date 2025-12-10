@@ -136,7 +136,7 @@ const Contact = () => {
         variants={slideIn("left", "tween", 0.2, 1)}
         initial="show"
         animate="show"
-        className="w-full mb-10 bg-slate-900 bg-opacity-80 border border-slate-700 p-8 rounded-lg backdrop-blur-sm"
+        className="w-full mb-10 bg-black bg-opacity-80 border border-white border-opacity-30 p-8 rounded-lg backdrop-blur-sm"
       >
         <p className={styles.sectionSubText}>Get in touch</p>
         <h3 className={`${styles.sectionHeadText} mb-8`}>Contact.</h3>
@@ -156,10 +156,10 @@ const Contact = () => {
               value={form.name}
               onChange={handleChange}
               placeholder="What's your name?"
-              className={`bg-slate-800 py-4 px-6 placeholder:text-gray-500 text-white rounded-lg outline-none border ${
+              className={`bg-black py-4 px-6 placeholder:text-gray-500 text-white rounded-lg outline-none border ${
                 errors.name
                   ? "border-red-500"
-                  : "border-slate-700 focus:border-[#915EFF]"
+                  : "border-white border-opacity-30 focus:border-white"
               } font-medium transition-colors`}
             />
             {errors.name && (
@@ -177,10 +177,10 @@ const Contact = () => {
               value={form.email}
               onChange={handleChange}
               placeholder="What's your email?"
-              className={`bg-slate-800 py-4 px-6 placeholder:text-gray-500 text-white rounded-lg outline-none border ${
+              className={`bg-black py-4 px-6 placeholder:text-gray-500 text-white rounded-lg outline-none border ${
                 errors.email
                   ? "border-red-500"
-                  : "border-slate-700 focus:border-[#915EFF]"
+                  : "border-white border-opacity-30 focus:border-white"
               } font-medium transition-colors`}
             />
             {errors.email && (
@@ -198,10 +198,10 @@ const Contact = () => {
               value={form.message}
               onChange={handleChange}
               placeholder="What do you want to say?"
-              className={`bg-slate-800 py-4 px-6 placeholder:text-gray-500 text-white rounded-lg outline-none border ${
+              className={`bg-black py-4 px-6 placeholder:text-gray-500 text-white rounded-lg outline-none border ${
                 errors.message
                   ? "border-red-500"
-                  : "border-slate-700 focus:border-[#915EFF]"
+                  : "border-white border-opacity-30 focus:border-white"
               } font-medium transition-colors resize-none`}
             />
             {errors.message && (
@@ -226,7 +226,7 @@ const Contact = () => {
           <button
             type="submit"
             disabled={loading}
-            className="bg-[#915EFF] hover:bg-[#7c3aed] disabled:bg-slate-700 disabled:cursor-not-allowed py-3 px-8 rounded-xl outline-none w-full text-white font-bold shadow-md transition-all duration-300"
+            className="bg-white hover:bg-gray-200 disabled:bg-gray-800 disabled:cursor-not-allowed py-3 px-8 rounded-xl outline-none w-full text-black font-bold shadow-md transition-all duration-300"
           >
             {loading ? "Sending..." : "Send"}
           </button>
@@ -238,10 +238,10 @@ const Contact = () => {
           variants={slideIn("right", "tween", 0.2, 1)}
           initial="show"
           animate="show"
-          className="w-full lg:w-1/2 h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center"
+          className="w-full lg:w-1/2 h-[400px] sm:h-[500px] md:h-[600px] lg:h-[600px] flex items-center justify-center"
         >
-          <div className="w-full h-full relative group rounded-lg overflow-hidden border border-[#915EFF] border-opacity-30 group-hover:border-opacity-100 bg-gradient-to-br from-slate-900 to-slate-950 backdrop-blur-sm transition-all duration-300">
-            <div className="absolute -inset-1 bg-gradient-to-r from-[#915EFF] to-[#00d4ff] rounded-lg blur opacity-0 group-hover:opacity-50 transition duration-500 -z-10" />
+          <div className="w-full h-full relative group rounded-lg overflow-hidden border border-white border-opacity-30 group-hover:border-opacity-100 bg-black backdrop-blur-sm transition-all duration-300">
+            <div className="absolute -inset-1 bg-gradient-to-r from-gray-400 to-gray-600 rounded-lg blur opacity-0 group-hover:opacity-50 transition duration-500 -z-10" />
 
             <div className="w-full h-full flex items-center justify-center">
               <svg
@@ -250,9 +250,9 @@ const Contact = () => {
               >
                 <defs>
                   <radialGradient id="earthGradient">
-                    <stop offset="0%" stopColor="#00d4ff" />
-                    <stop offset="50%" stopColor="#0080ff" />
-                    <stop offset="100%" stopColor="#001a4d" />
+                    <stop offset="0%" stopColor="#ffffff" />
+                    <stop offset="50%" stopColor="#9ca3af" />
+                    <stop offset="100%" stopColor="#1a1a1a" />
                   </radialGradient>
                   <filter id="glow">
                     <feGaussianBlur stdDeviation="3" result="coloredBlur" />
@@ -283,7 +283,7 @@ const Contact = () => {
                   cy="100"
                   r="85"
                   fill="none"
-                  stroke="#915EFF"
+                  stroke="#ffffff"
                   strokeWidth="2"
                   opacity="0.5"
                   animate={{
@@ -301,7 +301,7 @@ const Contact = () => {
                   cy="100"
                   r="90"
                   fill="none"
-                  stroke="#00d4ff"
+                  stroke="#d1d5db"
                   strokeWidth="1"
                   opacity="0.3"
                   animate={{
@@ -314,16 +314,16 @@ const Contact = () => {
                   }}
                 />
 
-                <circle cx="130" cy="70" r="3" fill="#915EFF" opacity="0.7" />
-                <circle cx="60" cy="120" r="2" fill="#00d4ff" opacity="0.7" />
-                <circle cx="100" cy="50" r="2.5" fill="#915EFF" opacity="0.6" />
+                <circle cx="130" cy="70" r="3" fill="#ffffff" opacity="0.7" />
+                <circle cx="60" cy="120" r="2" fill="#d1d5db" opacity="0.7" />
+                <circle cx="100" cy="50" r="2.5" fill="#ffffff" opacity="0.6" />
               </svg>
             </div>
 
-            <div className="absolute top-4 left-4 text-[#00d4ff] font-mono text-xs opacity-70">
+            <div className="absolute top-4 left-4 text-white font-mono text-xs opacity-70">
               &gt; earth.ping()
             </div>
-            <div className="absolute bottom-4 right-4 text-[#915EFF] font-mono text-xs opacity-70">
+            <div className="absolute bottom-4 right-4 text-gray-300 font-mono text-xs opacity-70">
               Status: [<span className="text-green-400 animate-pulse">●</span>]
               Connected
             </div>
@@ -334,7 +334,7 @@ const Contact = () => {
           variants={slideIn("up", "tween", 0.3, 1)}
           initial="show"
           animate="show"
-          className="w-full lg:w-1/2 h-[400px] sm:h-[500px] md:h-[600px] lg:h-auto"
+          className="w-full lg:w-1/2 h-[400px] sm:h-[500px] md:h-[600px] lg:h-[600px]"
         >
           <ContactTerminal onSubmit={handleTerminalSubmit} isMobile={false} />
         </motion.div>

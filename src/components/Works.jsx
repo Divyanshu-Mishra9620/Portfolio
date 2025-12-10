@@ -26,15 +26,15 @@ const ProjectCard = ({
           scale: 1,
           speed: 450,
         }}
-        className="relative bg-gradient-to-br from-slate-900 to-slate-950 p-5 rounded-lg sm:w-[360px] w-full cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/50 border border-[#915EFF] border-opacity-30 hover:border-opacity-100 backdrop-blur-sm"
+        className="relative bg-black p-5 rounded-lg sm:w-[360px] w-full cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-white/20 border border-white border-opacity-30 hover:border-opacity-100 backdrop-blur-sm"
       >
-        <div className="absolute -inset-0.5 bg-gradient-to-r from-[#915EFF] to-[#00d4ff] rounded-lg blur opacity-0 hover:opacity-75 transition duration-500 -z-10" />
+        <div className="absolute -inset-0.5 bg-gradient-to-r from-gray-400 to-gray-600 rounded-lg blur opacity-0 hover:opacity-75 transition duration-500 -z-10" />
 
         <div className="relative w-full h-[230px] group">
           <img
             src={image}
             alt={`${name} project screenshot`}
-            className="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105 border border-[#00d4ff] border-opacity-20"
+            className="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105 border border-gray-500 border-opacity-20"
           />
 
           <div className="absolute inset-0 flex justify-end m-3 gap-2">
@@ -65,7 +65,7 @@ const ProjectCard = ({
             {deployed_link && (
               <div
                 onClick={() => window.open(deployed_link, "_blank")}
-                className="relative w-10 h-10 rounded-full flex justify-center items-center cursor-pointer bg-gradient-to-br from-[#915EFF] to-[#7c3aed] hover:from-[#7c3aed] hover:to-[#6d28d9] transition-all duration-300 hover:scale-110 border-2 border-white shadow-lg shadow-purple-500/50 group/icon"
+                className="relative w-10 h-10 rounded-full flex justify-center items-center cursor-pointer bg-gradient-to-br from-gray-600 to-gray-800 hover:from-gray-500 hover:to-gray-700 transition-all duration-300 hover:scale-110 border-2 border-white shadow-lg shadow-white/30 group/icon"
                 role="button"
                 aria-label={`View ${name} live demo`}
                 tabIndex={0}
@@ -91,8 +91,8 @@ const ProjectCard = ({
         </div>
 
         <div className="mt-5">
-          <h3 className="text-white font-bold text-[20px] font-mono hover:text-[#915EFF] transition-colors duration-300 flex items-center gap-2">
-            <span className="text-[#915EFF]">&gt;</span> {name}
+          <h3 className="text-white font-bold text-[20px] font-mono hover:text-gray-300 transition-colors duration-300 flex items-center gap-2">
+            <span className="text-white">&gt;</span> {name}
           </h3>
           <p className="mt-2 text-gray-300 text-[14px] leading-relaxed font-mono">
             {description}
@@ -103,9 +103,9 @@ const ProjectCard = ({
           {tags.map((tag) => (
             <p
               key={`${name}-${tag.name}`}
-              className="text-[13px] font-mono px-3 py-1.5 rounded-md bg-slate-800 text-gray-200 border border-slate-600 transition-all hover:border-[#915EFF] hover:bg-slate-700"
+              className="text-[13px] font-mono px-3 py-1.5 rounded-md bg-black text-gray-200 border border-white border-opacity-30 transition-all hover:border-white hover:bg-gray-900"
             >
-              <span className="text-[#915EFF]">$</span> {tag.name}
+              <span className="text-white">$</span> {tag.name}
             </p>
           ))}
         </div>
@@ -139,17 +139,17 @@ const Works = () => {
     <>
       <motion.div variants={textVariant()}>
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-1 h-8 bg-gradient-to-b from-[#915EFF] to-[#00d4ff]" />
-          <p className="text-[#00d4ff] font-mono text-sm uppercase tracking-widest">
+          <div className="w-1 h-8 bg-gradient-to-b from-gray-400 to-gray-600" />
+          <p className="text-gray-400 font-mono text-sm uppercase tracking-widest">
             &gt; portfolio.projects()
           </p>
         </div>
         <h2 className={`${styles.sectionHeadText} font-black text-white`}>
-          <span className="text-[#00d4ff]">{"<"}</span> Works{" "}
-          <span className="text-[#915EFF]">{"/"}</span>
-          <span className="text-[#00d4ff]">{">"}</span>
+          <span className="text-gray-400">{"<"}</span> Works{" "}
+          <span className="text-white">{"/"}</span>
+          <span className="text-gray-400">{">"}</span>
         </h2>
-        <p className="text-[#00d4ff] font-mono text-xs mt-2 opacity-70"></p>
+        <p className="text-gray-400 font-mono text-xs mt-2 opacity-70"></p>
       </motion.div>
 
       <div className="w-full flex">
@@ -186,7 +186,7 @@ const Works = () => {
                   >
                     <motion.path
                       d="M 0 60 Q 100 120 200 60"
-                      stroke="#915EFF"
+                      stroke="#ffffff"
                       strokeWidth="2"
                       fill="none"
                       strokeDasharray="10,5"
@@ -202,7 +202,7 @@ const Works = () => {
                       cx="200"
                       cy="60"
                       r="5"
-                      fill="#00d4ff"
+                      fill="#d1d5db"
                       animate={{
                         r: [5, 8, 5],
                         opacity: [1, 0.5, 1],
@@ -244,7 +244,7 @@ const Works = () => {
                   >
                     <motion.path
                       d="M 0 50 Q 60 100 120 50"
-                      stroke="#915EFF"
+                      stroke="#ffffff"
                       strokeWidth="1.5"
                       fill="none"
                       strokeDasharray="8,4"
@@ -260,7 +260,7 @@ const Works = () => {
                       cx="120"
                       cy="50"
                       r="3"
-                      fill="#00d4ff"
+                      fill="#d1d5db"
                       animate={{
                         r: [3, 5, 3],
                         opacity: [1, 0.5, 1],
@@ -301,7 +301,7 @@ const Works = () => {
                     y1="0"
                     x2="20"
                     y2="32"
-                    stroke="#915EFF"
+                    stroke="#ffffff"
                     strokeWidth="2"
                     strokeDasharray="5,3"
                     initial={{ strokeDashoffset: 0 }}
@@ -316,7 +316,7 @@ const Works = () => {
                     cx="20"
                     cy="16"
                     r="2"
-                    fill="#00d4ff"
+                    fill="#d1d5db"
                     animate={{
                       cy: [0, 32, 0],
                       opacity: [0, 1, 0],
